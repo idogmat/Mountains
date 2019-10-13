@@ -1,0 +1,24 @@
+mixin icon(name, className)
+  - var icon = require(`images/icons/${name}.svg`);
+  svg(class=className viewBox=icon.viewBox preserveAspectRatio="none")
+    use(xlink:href=icon.url)
+
+mixin image(path, className)
+  img(src=require(`images/${path}`) class=className)
+
+- var nav = [{url: 'works.html', title: 'Главная'}, {url: 'about.html', title: 'Обо мне'}, {url: 'about.html', title: 'Навыки'}, {url: 'blog.html', title: 'Работы'}, {url: 'about.html', title: 'Отзывы'}, {url: 'index.html', title: 'Связаться'}]
+mixin nav(className)
+  ul(class="header-nav__ul")
+    each item in nav
+      li(class="header-nav__li")
+        a(class="header-nav__link" href=item.url) #{item.title}
+
+
+// Social button
+- var social = [{url: 'https://www.instagram.com', ico: 'insta'}, {url: 'https://vk.com', ico: 'vk'}, {url: 'https://github.com', ico: 'github'}]
+mixin social(className)
+  div(class="social-block")
+    each item in social
+      a(class="social-block__link" href=item.url target="_blank")
+        svg(class=`social-block__fa social-block__fa__${item.ico}`)
+          use(xlink:href=`sprite.svg#${item.ico}`)

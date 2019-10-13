@@ -1,0 +1,148 @@
+.wrapper-skills .triangles{
+  display: flex;
+  margin-top: 100px;
+  color: #fff;
+&__item{
+  width: 50%;
+  display: block;
+  height: 100px;
+  fill: currentColor;
+  transform: rotate(180deg);
+}
+}
+
+.my-works{
+    &__title{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    font-size: 36px;
+    font-weight: 700;
+  }
+  &__block{
+    margin: 10% auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  &__preview{
+    width: 980px;
+    height: 550px;
+  }
+  &__right{
+    display: flex;
+    margin-left: 0px;
+    width: 415px;
+    justify-content: space-around;
+    flex-direction: column;
+  }
+  &__link{
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 10rem;
+    font-size: 18px;
+    font-weight: 700;
+    color: #586ed3;
+    text-decoration: none;
+    width: 50%;
+    box-sizing: border-box;
+    &:hover{
+      transition: all .1s;
+      border-bottom: 2px solid #586ed3;
+    }
+  }
+  &__p{
+  font-weight: 600;
+  }
+  &__tags{
+    display: flex;
+    justify-content: space-around;
+    flex-flow: row wrap;
+  }
+}
+.slider{
+  position: relative;
+  &__previews{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 20%;
+    .previews__item{
+      background: #5500f2;
+    }
+    &__pic{
+      width: 100%;
+      height: 100%;
+      &:hover{
+        border: 2px solid #5500f2;
+      }
+    &:active{
+      opacity: .4;
+    }
+    }
+  }
+  &__buttons{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+  }
+}
+.slider-button{
+  position: absolute;
+  bottom: -9%;
+  display: inline-flex;
+  justify-content: space-around;
+  width: 10%;
+  height: 9%;
+  background: #353e4e;
+  box-sizing: border-box;
+}
+.slider-buttons__item{
+  outline: none;
+  background:#353e4e;
+  width: 50%;
+  &:active{
+    background:#5500f2;
+  }
+}
+.slider-buttons{
+  &__item--slide--prev{
+    width: 10px;
+    height: 10px;
+    fill: #fff;
+    transform: rotate(-90deg);
+    opacity: .5;
+    &:hover{
+      opacity: 1;
+    }
+  }
+  &__item--slide--next{
+    width: 10px;
+    height: 10px;
+    fill: #fff;
+    transform: rotate(90deg);
+    opacity: .5;
+    &:hover{
+      opacity: 1;
+    }
+  }
+}
+.tags{
+  border-radius: 20px;
+  padding:0 15px;
+  background: #f3f5f9;
+  &__item{
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 48px;
+  }
+}
+.works__link{
+  fill: #586ed3;
+  width: 15px;
+  height: 15px;
+  margin-right: 20px;
+}

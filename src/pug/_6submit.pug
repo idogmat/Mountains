@@ -1,0 +1,22 @@
+section.submit-me
+  h2.submit-me__h2 Связаться со мной
+  form.order-form(action="submit" id="myForm")
+    .form-block
+      .form-block__name-email
+        .form-block__label
+          span.form-block__span Введите ваше имя
+          label.form-label(for="")
+            +icon('user','svg-form svg-user')
+            input.form-input(type="name" name="name" placeholder="Евгений Родин" onFocus="this.placeholder='';" required)
+        .form-block__label
+          span.form-block__span Введите ваш email
+          label.form-label(for="")
+            +icon('envelope','svg-form svg-envelope')
+            input.form-input(type="email" name="email" class="form-input" placeholder="loftschool@study.com" onFocus="this.placeholder='';" required)
+      .form-message
+        .form-block__label
+          span.form-block__span Сообщение к письму
+          label.form-label(for="")
+            +icon('message','svg-form svg-message')
+            input.form-input.form-input-message(type="text" placeholder="Требуется ваша помощь в создании сайта.\nИнтересуют сроки и цена вопроса" onFocus="this.placeholder='';")
+    button.form-submit Отправить

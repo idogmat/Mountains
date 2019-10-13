@@ -1,0 +1,100 @@
+ //footer
+ .wrapper-footer{
+    background: #252830;
+    min-height: 30%;
+    display: flex;
+    justify-content: flex-start;
+    flex-flow: column nowrap;
+  
+  }
+  .container-footer{
+    display: flex;
+      justify-content: space-between;
+      flex-flow: row nowrap;
+    
+  }
+  .block-footer{
+    padding-top: 70px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    &__year{
+      /* padding-right: 70px; */
+      width: 170px;
+      &__text{
+        font-size: 48px;
+        line-height: 30px;
+        font-weight: 600;
+        width: 100%;
+      }
+    }
+    &__dev-info{
+      padding-left: 3rem;
+      &__h3{
+        font-weight: 700;
+        color: #fff;
+      }
+    }
+    &__menu{
+      padding-left: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      &__info{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width:90%;
+        &__social{
+          width: 39%;
+          padding-top: 60px;
+          &__text{
+  
+          }
+        }
+        &__rools{
+          padding-top: 60px;
+          width: 430px;
+          &__h5{
+            padding-top: 10px;
+            font-size: 16px;
+            font-style: italic;
+            color: #fff;
+          }
+        }
+        
+      }
+      
+    }
+  
+  }
+  .block-footer__menu .header-nav{
+    &__ul{
+      width: 68%;
+      justify-content: space-between;
+    }
+    &__link{
+      color: #fff;
+    }
+  }
+  .block-footer__menu__info__social .social-block{
+    padding-top: 20px;
+    justify-content: flex-start;
+    &__link{
+      border: 1px solid #414c63;
+      align-items: center;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      box-sizing: border-box;
+      /* padding: 9px 11px 6px; */
+      &:hover{
+        border-color: #5500f2;
+      }
+      &:hover .social-block__fa{
+        fill: #5500f2;
+      }
+    }
+  }
