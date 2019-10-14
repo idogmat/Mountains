@@ -5,7 +5,12 @@
     display: flex;
     justify-content: flex-start;
     flex-flow: column nowrap;
-  
+    @include desktop(){
+      min-height: 45%;
+    }
+  @include tablets(){
+    min-height: 60%;
+  }
   }
   .container-footer{
     display: flex;
@@ -22,23 +27,40 @@
       display: flex;
       flex-flow: row nowrap;
       justify-content: space-between;
-      width: 55%;
+      width: 50%;
+      @include desktop(){
+        width: 85%;
+        flex-wrap: wrap;
+      }
+      @include tablets(){
+        flex-flow: column nowrap;
+        justify-content: flex-start;
+        
+      }
     }
     &__year{
 
-      width: 100%;
+      width: 215px;
+      @include tablets(){
+        padding-bottom: 15%;
+      }
       &__text{
         font-size: 48px;
         line-height: 30px;
         font-weight: 600;
-        width: 100%;
+        width: 215px;
       }
     }
     &__dev-info{
       padding-left: 5%;
+      @include tablets(){
+        padding: 0;
+      }
       &__h3{
         font-weight: 700;
         color: #fff;
+        text-transform: uppercase;
+        padding-bottom: 10%;
       }
     }
     &__menu{
@@ -46,21 +68,53 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      .header-nav{
+        &__ul{
+          display: flex;
+          width: 68%;
+          justify-content: space-between;
+          @include desktop(){
+            width: 100%;
+          }
+          @include tablets(){
+            width: 100%;
+            flex-flow: row wrap;
+            justify-content: flex-start;
+          }
+        }
+        &__li{
+          width: 21%;
+          line-height: 32px;
+          justify-content: center;
+        }
+        &__link{
+          color: #fff;
+        }
+      }
       &__info{
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         width:90%;
+        @include tablets(){
+          flex-flow: column nowrap;
+        }
         &__social{
           width: 39%;
-          padding-top: 60px;
+          padding-top: 45px;
+          @include tablets(){
+            width: 100%;
+          }
           &__text{
   
           }
         }
         &__rools{
-          padding-top: 60px;
+          padding-top: 45px;
           width: 40%;
+          @include tablets(){
+            width: 100%;
+          }
           &__h5{
             padding-top: 10px;
             font-size: 16px;
@@ -70,17 +124,6 @@
         }
         
       }
-      
-    }
-  
-  }
-  .block-footer__menu .header-nav{
-    &__ul{
-      width: 68%;
-      justify-content: space-between;
-    }
-    &__link{
-      color: #fff;
     }
   }
   .block-footer__menu__info__social .social-block{

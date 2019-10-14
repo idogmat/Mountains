@@ -9,7 +9,7 @@
     background-repeat: no-repeat;
   }
   @include tablets(){
-    background: #fff;;
+    background: #fff;
   }
   /* @media screen and (max-width: 900px){
     background-size: 34%;
@@ -26,11 +26,17 @@
       flex-flow: column-reverse nowrap;
       justify-content: flex-start;
     }
+    @include phones{
+      height: 120vh;
+    }
     &__block{
       padding-top: 40px;
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
+      @include tablets(){
+        padding: 0;
+      }
 
       &__h3{
         display: flex;
@@ -38,6 +44,20 @@
         justify-content: center;
         font-size: 30px;
         font-weight: 700;
+        @include tablets(){
+          margin: 0 auto;
+          width: 50%;
+          -webkit-box-align: center;
+          -ms-flex-align: center;
+          align-items: center;
+          text-align: center;
+        }
+        @include phones(){
+          margin: 0 0;
+          width: 90%;
+          align-items: flex-start;
+          text-align: start;
+        }
       }
       &__p{
         margin: 60px 0;
@@ -47,7 +67,20 @@
         flex-direction: column;
         justify-content: center;
         width: 590px;
-        
+        @include tablets(){
+          margin: 5% auto;
+          width: 75%;
+          -webkit-box-align: center;
+          -ms-flex-align: center;
+          align-items: center;
+          text-align: center;
+        }
+        @include phones(){
+          margin: 5% 0;
+          width: 75%;
+          align-items: flex-start;
+          text-align: start;
+        }
       }
       &__pack{
         display: flex;
@@ -58,15 +91,12 @@
           width: 100%;
           height: 100%;
           background: url('~images/content/bag.png');
-          background-size: 35%;
+          background-size: 25%;
           background-position: 50% 20%;
           background-repeat: no-repeat;
         }
       }
     }
-  }
-  .bag-img{
-  
   }
   .skill{
     position: relative;
@@ -114,9 +144,25 @@
     &__list{
       display: flex;
       flex-flow: row nowrap;
+    @include phones{
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    }
+    &__item{
+      width: 40%;
+
     }
     &__title{
       font-size: 24px;
       font-weight: 700;
+      @include tablets{
+        margin: 0 auto;
+        width: 75%;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        text-align: center;
+      }
     }
   }
