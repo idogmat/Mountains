@@ -18,24 +18,47 @@
     justify-content: flex-start;
     font-size: 36px;
     font-weight: 700;
+    @include tablets(){
+padding: 40px;
+    }
   }
   &__block{
     margin: 10% auto;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    @include tablets(){
+      flex-flow: column wrap;
+      justify-content: center;
+     margin: 0 auto;
+    }
   }
 
   &__preview{
     width: 980px;
     height: 550px;
   }
+  &__left{
+    @include desktop(){
+      justify-content: center;
+      width: 85%;
+      margin: 0 auto;
+    }
+  }
   &__right{
     display: flex;
-    margin-left: 0px;
-    width: 415px;
+    margin-left: 5%;
+    width: 30%;
     justify-content: space-around;
     flex-direction: column;
+    @include tablets(){
+      padding-top: 30px;
+      flex-flow: column wrap;
+      width: 60%;
+      margin: 0 auto;
+      text-align: center;
+      
+    }
   }
   &__link{
     display: flex;
@@ -47,20 +70,40 @@
     font-weight: 700;
     color: #586ed3;
     text-decoration: none;
-    width: 50%;
     box-sizing: border-box;
+    width: 200px;
     &:hover{
       transition: all .1s;
       border-bottom: 2px solid #586ed3;
     }
+    @include tablets(){
+      margin: 0 auto;
+      justify-content: center;
+      padding-top: 30px;
+    }
   }
-  &__p{
+  &__text{
   font-weight: 600;
+  @include tablets(){
+    padding-top: 30px;
+    
+  }
+
   }
   &__tags{
     display: flex;
     justify-content: space-around;
     flex-flow: row wrap;
+    @include tablets(){
+      padding-top: 30px;
+      
+    }
+  }
+  &__desc-text{
+    @include tablets(){
+      padding-top: 30px;
+      
+    }
   }
 }
 .slider{
@@ -142,7 +185,7 @@
 }
 .works__link{
   fill: #586ed3;
-  width: 15px;
+  width: 25px;
   height: 15px;
-  margin-right: 20px;
+  padding-right: 10px;
 }

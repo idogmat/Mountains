@@ -1,7 +1,7 @@
 
 .wrapper-responses{
     background: url('~images/content/budda.png'),#fff;
-    background-size: cover;
+    background-size: contain;
     background-repeat: no-repeat;
   }
   .my-responses{
@@ -58,6 +58,9 @@
     justify-content: space-between;
     width: 970px;
     padding-top: 85px;
+    @include desktop(){
+      width: 65%;
+   }
   
   }
   .slider-responses-block{
