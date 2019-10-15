@@ -3,16 +3,16 @@
     font-size: 36px;
     font-weight: 900;
   }
-  .wrapper-header{
-    /* background-image: url(/src/images/content/mountain-bg.png); //пока так */
+  /* .wrapper-header{
     background: url('~images/content/mountain-bg.png'),#fff;
     background-size: contain;
     background-repeat: no-repeat;
-  }
+  } */
   .header-hello{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    padding-bottom: 100px;
   }
 
 //
@@ -36,6 +36,10 @@
     &__li{
       align-items: center;
       display: flex;
+      border-bottom: 2px solid transparent;
+      text-align: center;
+      justify-content: center;
+      width: 13%;
       &:hover{
         color:#5500f2;
         border-bottom: 2px solid #5500f2;
@@ -100,6 +104,13 @@
     flex-direction:row;
     justify-content: center;
     align-items: center;
+    &:hover{
+      color: #5500f2;
+      .scroll-pin__svg{
+        fill:#5500f2;
+      }
+
+    }
     &__svg{
       width: 30px;
       height: 30px;
@@ -221,4 +232,22 @@
     padding: 0;
     justify-content: flex-start;
   }
+}
+//parallax
+.block__bg{
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  /* min-width: 100%; */
+  .bg-header{
+    display: block;
+    width: 100%;
+  }
+}
+.block__ballum{
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
 }

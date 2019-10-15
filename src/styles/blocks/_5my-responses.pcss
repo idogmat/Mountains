@@ -23,13 +23,12 @@
   .arrow-right,.arrow-left{
     width: 10px;
     height: 10px;
+    fill: #414c63;
   }
   .arrow-left{
     transform: rotate(180deg);
   }
-  .arrow-left,.arrow-right{
-    fill: #414c63;
-  }
+
   .toggle-arrows{
     display: flex;
     flex-direction: row;
@@ -48,6 +47,12 @@
     border-radius: 50%;
     background-color: transparent;
     background-repeat: no-repeat;
+    &:hover{
+      border: 0.0625rem solid #7a00ea;
+      .arrow-right,.arrow-left{
+        fill: #7a00ea;
+      }
+    }
     &__right{
       margin-left: 30px;
     }
