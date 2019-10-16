@@ -3,11 +3,14 @@
     font-size: 36px;
     font-weight: 900;
   }
-  /* .wrapper-header{
-    background: url('~images/content/mountain-bg.png'),#fff;
-    background-size: contain;
+
+  .wrapper-header{
+    @include tablets(){
+    background: url('~images/content/mountain-bg.png'),#f8f8fb;
+    background-size: cover;
     background-repeat: no-repeat;
-  } */
+    }
+  }
   .header-hello{
     display: flex;
     flex-direction: column;
@@ -234,20 +237,93 @@
   }
 }
 //parallax
-.block__bg{
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  /* min-width: 100%; */
-  .bg-header{
-    display: block;
-    width: 100%;
+  .hero{
+    height: 100vh;
+    position: relative;
+    min-height: 650px;
+    @include tablets(){
+      display: none;
+    }
+      &__block__bg{
+      position: absolute;
+      min-height: 650px;
+      top: 0;
+      right: 0;
+      left: 0;
+    /* min-width: 100%; */
+        .par-eff{
+          position: absolute;
+          display: block;
+          width: 100%;
+          max-width: none;
+          max-height: none;
+          z-index: -2;
+        }
+        .mountain-par{
+          @include desktop(){
+            bottom: -50%;
+          }
+        }
+        .mountain1-par{
+          @include desktop(){
+            bottom: -75%;
+          }
+        }
+        .man-par{
+          width: 75%;
+          top: 80%;
+          left: -10%;
+          z-index: -1;
+          @media screen and (max-width: 1450px){
+            width: 85%;
+          }
+          @include desktop(){
+            width: 95%;
+            top: 100%;
+          }
+        }
+     }
+    &__block__ballum{
+      position: absolute;
+      min-height: 650px;
+      top: 0;
+      right: 0;
+      left: 0;
+      .par-eff{
+        position: absolute;
+        display: block;
+        width: 100%;
+        max-width: none;
+        max-height: none;
+      }
+      .baloon-par{
+        width: 11%;
+        top: 60%;
+        right: 25%;
+        z-index: -2;
+      }
+      .cloud-par{
+        width: 100%;
+        top: 65%;
+        z-index: -2;
+      }
+      .white-par{
+        width: 100%;
+        bottom: -200%;
+        z-index: -1;
+        margin-bottom: 200px;
+        @include desktopHd(){
+          margin-bottom: 0;
+          bottom: -180%;
+        }
+        @media screen and (max-width: 1450px){
+          bottom: -155%;
+        }
+        @include desktop(){
+          margin-bottom: 0px;
+          bottom: -165%;
+          height: 100%;
+        }
+      }
+      }
   }
-}
-.block__ballum{
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-}

@@ -31,6 +31,7 @@
       margin-bottom: 5rem;
       width: 210px;
       height: 210px;
+      z-index: 5;
       @include tablets(){
         margin: 11% 10%;
         width: 10.625rem;
@@ -43,6 +44,7 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
+      z-index: 5;
       @include desktop(){
         width: 50%;
       }
@@ -84,6 +86,7 @@
     flex-direction:row;
     flex-flow: row nowrap;
     justify-content: flex-start;
+    z-index: 5;
     @include tablets(){
       padding-top: 2rem;
     }
@@ -138,14 +141,3 @@
     }
   }
   
-  .wrapper-header .triangles{
-    display: flex;
-    margin-top: -100px;
-    color: #fff;
-  &__item{
-    width: 50%;
-    display: block;
-    height: 100px;
-    fill: currentColor;
-  }
-}

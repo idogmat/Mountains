@@ -1,6 +1,7 @@
+//parallax
 var parallax = (function () {
-    var bg = document.querySelector('.block__bg'),
-    user = document.querySelector('.block__ballum'),
+    var bg = document.querySelector('.hero__block__bg'),
+    user = document.querySelector('.hero__block__ballum'),
     sectionText = document.querySelector('.tablet');
 
 
@@ -11,7 +12,7 @@ return {
         style.top = strafe;
     },
     init: function (wScroll) {
-        this.move(bg, wSccroll, 2);
+        this.move(bg, wScroll, -50);
     }
 
     }

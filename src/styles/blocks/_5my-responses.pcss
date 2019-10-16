@@ -87,13 +87,26 @@
     flex-direction: row;
     &:nth-child(2){
       padding-right: 120px;
+      @include tablets(){
+        padding: 0;
+        transform: translateX(100%);
+      }
+    }
+    
+    @include tablets(){
+      &:nth-child(3){
+        transform: translateX(200%);
+      }
+      &:nth-child(4){
+        transform: translateX(300%);
+      }
     }
   }
   .slider-respons{
     width: 350px;
     padding-left: 20px;
     @include tablets(){
-      width: 85%;
+      width: 100%;
     }
   }
   .slider-respons-p{
