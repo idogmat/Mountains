@@ -17,9 +17,17 @@
     @include desktop(){
       width: 95%;
    }
+   @include phones(){
+    display: flex;
+    flex-flow: column nowrap;
+    height: 100%;
+   }
   }
   .form-block{
     height: 250px;
+    @include tablets(){
+      height: 100%;
+    }
   }
 
   .form-label{
@@ -27,6 +35,9 @@
       justify-content: center;
       align-items: center;
       cursor: pointer;
+      @include phones(){
+        margin-bottom: 30px;
+      }
       &:hover{
         .svg-form{
           fill:#4a00ed;
@@ -52,6 +63,7 @@
     border: none;
     border-bottom: 2px solid #414c63;
     cursor: pointer;
+    /* text-indent: 10px; */
     @media screen and (max-width:850px){
       width: 95%;
    }
@@ -63,6 +75,19 @@
       display: flex;
       flex-direction: row;
       justify-content: space-between;
+      .form-block__label{
+        @include tablets(){
+          width: 50%;
+        }
+        @include phones(){
+          width: 100%;
+        }
+      }
+      @include phones(){
+        flex-flow: column nowrap;
+        justify-content: center;
+        margin: 50px auto;
+      }
     }
     &__label{
       display: flex;

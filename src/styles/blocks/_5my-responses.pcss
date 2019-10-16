@@ -47,6 +47,9 @@
     border-radius: 50%;
     background-color: transparent;
     background-repeat: no-repeat;
+    @include tablets(){
+      margin-left: 1.5rem;
+    }
     &:hover{
       border: 0.0625rem solid #7a00ea;
       .arrow-right,.arrow-left{
@@ -67,6 +70,9 @@
     @include desktop(){
       width: 750px;
   }
+  @include tablets(){
+    width: 100%;
+}
   }
   .slider-responses{
     position: absolute;
@@ -80,16 +86,26 @@
       justify-content: flex-start;
       width: 100%;
    }
-  
   }
   .slider-responses-block{
     display: flex;
     flex-direction: row;
+    @include tablets(){
+      padding-left: 5%;
+      position: absolute;
+      width: 49%;
+    }
+    @include phones(){
+      width: 100%;
+    }
     &:nth-child(2){
       padding-right: 120px;
       @include tablets(){
         padding: 0;
         transform: translateX(100%);
+      }
+      @include phones(){
+        padding-left: 5%;
       }
     }
     
