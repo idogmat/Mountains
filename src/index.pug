@@ -3,17 +3,8 @@ include ./mixins.pug
 html(lang="ru")
   include ./pug/_head.pug
   body
-    .wrapper.wrapper-header
-      .hero__block
-        .hero__block__bg 
-          +image('content/parallax/Sky.png','par-eff sky-par')
-          +image('content/parallax/Mountain.png','par-eff mountain-par')
-          +image('content/parallax/Mountain1.png','par-eff mountain1-par')
-        .hero__block__ballum
-          +image('content/parallax/White.png','par-eff white-par')
-          +image('content/parallax/Man.png','par-eff man-par')
-          +image('content/parallax/Baloon.png','par-eff baloon-par')
-          +image('content/parallax/Cloud.png','par-eff cloud-par')
+    .wrapper.wrapper-header(id='header')
+      include ./pug/_header-parallax.pug
       .container
         include ./pug/_1header-nav.pug
         include ./pug/_2my-info.pug
@@ -22,8 +13,9 @@ html(lang="ru")
       .container
         include ./pug/_3my-skills.pug
         include ./pug/_4my-works.pug
-      include ./pug/_triangles.pug
     .wrapper.wrapper-responses
+      include ./pug/_triangles.pug
+      include ./pug/_footer-parallax.pug
       .container
         include ./pug/_5my-responses.pug
         include ./pug/_6submit.pug

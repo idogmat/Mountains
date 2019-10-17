@@ -1,4 +1,4 @@
-section.submit-me
+section.submit-me(id='submit-me')
   h2.submit-me__h2 Связаться со мной
   form.order-form(action="submit" id="myForm")
     .form-block
@@ -16,7 +16,7 @@ section.submit-me
       .form-message
         .form-block__label
           span.form-block__span Сообщение к письму
-          label.form-label(for="")
+          .form-label
             +icon('message','svg-form svg-message')
-            input.form-input.form-input-message(type="text" placeholder="Требуется ваша помощь в создании сайта.\nИнтересуют сроки и цена вопроса" onFocus="this.placeholder='';")
+            textarea.form-input.form-input-message(type="text" placeholder="Требуется ваша помощь в создании сайта.\nИнтересуют сроки и цена вопроса" onFocus="this.placeholder='';")
     button.form-submit Отправить

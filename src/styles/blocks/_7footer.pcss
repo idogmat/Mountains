@@ -11,6 +11,9 @@
   @include tablets(){
     min-height: 60%;
   }
+  @include phones(){
+    min-height: 65%;
+  }
   }
   .container-footer{
     display: flex;
@@ -23,6 +26,10 @@
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-around;
+    @include phones(){
+      padding-top: 20px;
+      flex-direction: column;
+    }
     &__year-info{
       display: flex;
       flex-flow: row nowrap;
@@ -44,6 +51,9 @@
       @include tablets(){
         padding-bottom: 15%;
       }
+      @include phones(){
+        padding-bottom: 3%;
+      }
       &__text{
         font-size: 48px;
         line-height: 30px;
@@ -61,6 +71,9 @@
         color: #fff;
         text-transform: uppercase;
         padding-bottom: 10%;
+        @include phones(){
+          padding: 5% 0;
+        }
       }
     }
     &__menu{
@@ -68,6 +81,10 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      @include phones(){
+        flex-flow: column;
+        padding: 0;
+      }
       .header-nav{
         &__ul{
           display: flex;
@@ -81,12 +98,23 @@
             flex-flow: row wrap;
             justify-content: flex-start;
           }
+          @include phones(){
+            flex-flow: column wrap;
+            padding: 20px 0 0 0;
+            height: 130px;
+          }
         }
         &__li{
           width: 21%;
           line-height: 32px;
           justify-content: center;
           border-bottom: 2px solid transparent;
+          @include tablets(){
+            width: 30%;
+          }
+          @include phones(){
+            width: 45%;
+          }
           &:hover{
             color: #5500f2;
     border-bottom: 2px solid #5500f2

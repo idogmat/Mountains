@@ -1,6 +1,9 @@
 
 
 .my-works{
+  @include tablets(){
+    height: 90vh;
+  }
     &__title{
     display: flex;
     flex-direction: row;
@@ -8,7 +11,7 @@
     font-size: 36px;
     font-weight: 700;
     @include tablets(){
-padding: 40px;
+      padding: 40px;
     }
   }
   &__block{

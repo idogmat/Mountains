@@ -1,11 +1,16 @@
 .submit-me{
-    height: 71vh;
+    height: 60vh;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    z-index: 5;
+    @include tablets(){
+      height: 81vh;
+    }
     &__h2{
       font-size: 36px;
       font-weight: 700;
+      z-index: 5;
       @include tablets(){
         text-align: center;
       }
@@ -14,6 +19,7 @@
   .order-form{
     width: 885px;
     height: 390px;
+    z-index: 5;
     @include desktop(){
       width: 95%;
    }
@@ -25,6 +31,7 @@
   }
   .form-block{
     height: 250px;
+    z-index: 5;
     @include tablets(){
       height: 100%;
     }
@@ -35,6 +42,7 @@
       justify-content: center;
       align-items: center;
       cursor: pointer;
+      z-index: 5;
       @include phones(){
         margin-bottom: 30px;
       }
@@ -67,6 +75,9 @@
     @media screen and (max-width:850px){
       width: 95%;
    }
+   @include phones(){
+    padding: 0;
+  }
   }
 
   .form-block{
@@ -104,6 +115,10 @@
     padding-left: 45px;
     width: 100%;
     height: 120px;
+    @include phones(){
+      padding: 0;
+      height: 180px;
+    }
   }
   .form-submit{
     margin-top: 60px;
@@ -130,4 +145,7 @@
     align-items: center;
     width: 30px;
     height: 30px;
+    @include phones(){
+      display: none;
+    }
   }

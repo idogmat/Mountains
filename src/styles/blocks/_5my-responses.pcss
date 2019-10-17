@@ -1,24 +1,48 @@
 
 .wrapper-responses{
+  @include tablets(){
     background: url('~images/content/budda.png'),#fff;
-    background-size: contain;
+    background-size: 260%;
+    background-position: center;
     background-repeat: no-repeat;
+    @include tablets(){
+      background-size: 464%;
+    }
+  }
   }
   .my-responses{
-    height: 86vh;
+    padding-top: 260px;
+    height: 70vh;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    z-index: 5;
+    @include tablets(){
+      height: 90vh;
+      
+    }
+    @include phones(){
+      padding-top: 6.25rem;
+    }
   }
   .nav-slider-responses{
-    padding-top: 260px;
+
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
+  z-index: 5;
+  @include phones(){
+    padding-top: 80px;
+    flex-flow: column nowrap;
+    justify-content: center;
+  }
   }
   .nav-slider-responses-h3{
     font-size: 36px;
     font-weight: 700;
+    @include phones(){
+      padding-bottom: 22px;
+    }
   }
   .arrow-right,.arrow-left{
     width: 10px;
@@ -32,6 +56,9 @@
   .toggle-arrows{
     display: flex;
     flex-direction: row;
+    @include phones(){
+      justify-content: center;
+    }
   }
   
   .toggle-arrow{
@@ -67,6 +94,7 @@
     overflow: hidden;
     width: 850px;
     height: 100%;
+    z-index: 5;
     @include desktop(){
       width: 750px;
   }
@@ -90,6 +118,7 @@
   .slider-responses-block{
     display: flex;
     flex-direction: row;
+    z-index: 5;
     @include tablets(){
       padding-left: 5%;
       position: absolute;
@@ -121,6 +150,7 @@
   .slider-respons{
     width: 350px;
     padding-left: 20px;
+    z-index: 5;
     @include tablets(){
       width: 100%;
     }
@@ -128,6 +158,7 @@
   .slider-respons-p{
     line-height: 1.8;
     height: 115px;
+    z-index: 5;
     @include tablets(){
       width: 100%;
       height:70%;
@@ -137,6 +168,7 @@
     width: 80px;
     height: 65px;
     opacity: .2;
+    z-index: 5;
     @include desktop(){
       width: 10%;
       height: 20%;
@@ -170,3 +202,120 @@
     margin-left: -15px;
     padding-right: 15px;
   }
+.wrapper-responses{
+    .budda__block{
+      width: 120%;
+      position: absolute;
+      z-index: -5;
+      @include desktopHd(){
+        width: 250%;
+      }
+        @include tablets(){
+          display: none;
+        }
+    &__bg{
+      position: absolute;
+      min-height: 40.625rem;
+      top: 0;
+      right: 0;
+      left: 0;
+      will-change: transform;
+      .triangles{
+        margin-bottom: -5.9%;
+        bottom: 8.2%;
+        @include desktopHd(){
+          width: 126%;
+          bottom: 7.1%;
+      }
+    }
+      .par-eff{
+        object-fit: cover;
+        position: absolute;
+        display: block;
+        width: 100%;
+        max-width: none;
+        max-height: none;
+        z-index: -2;
+      }
+      .budda-par-bg{
+        width: 115%;
+        bottom: -183%;
+          @include desktopHd(){
+            width: 126%;
+            
+          }
+      }
+      .budda-mountain{
+        width: 70%;
+        bottom: -232%;
+          @include desktopHd(){
+            width: 85%;
+            bottom: -195%;
+            right: 52%;
+            
+          }
+      }
+      .budda-cloud2{
+        bottom: -232%;
+          @include desktopHd(){
+            bottom: -295%;
+          }
+          @include desktop{
+              bottom: -196%;
+          }
+      }
+    }
+    &__cloud{
+      position: absolute;
+      min-height: 40.625rem;
+      top: 0;
+      right: 0;
+      left: 0;
+      will-change: transform;
+      .par-eff{
+        object-fit: cover;
+        position: absolute;
+        display: block;
+        width: 100%;
+        max-width: none;
+        max-height: none;
+        z-index: -2;
+      }
+      .budda-par{
+        width: 40%;
+        bottom: -544%;
+        right: -5%;
+        @include desktopHd(){
+          width: 13%;
+          bottom: -422%;
+          right: 58%;
+        }
+        @include desktop{
+              bottom: -380%;
+        }
+      }
+      .budda-cloud3{
+        bottom: -255%;
+          @include desktopHd(){
+            bottom: -249%;
+            width: 45%;
+          }
+          @include desktop{
+              bottom: -250%;
+          }
+      }
+      .budda-cloud1{
+        bottom: -244%;
+        right: -23%;
+            @include desktopHd(){
+              bottom: -255%;
+              width: 96%;
+              right: 23%;
+            }
+            @include desktop{
+
+            }
+      }
+    }
+  }
+}
