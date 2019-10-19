@@ -202,6 +202,7 @@
     margin-left: -15px;
     padding-right: 15px;
   }
+
 .wrapper-responses{
     .budda__block{
       width: 120%;
@@ -239,29 +240,36 @@
       }
       .budda-par-bg{
         width: 115%;
-        bottom: -183%;
+        bottom: -195%;
           @include desktopHd(){
             width: 126%;
             
           }
       }
       .budda-mountain{
-        width: 70%;
-        bottom: -232%;
+        width: 122%;
+        bottom: -231%;
+    
           @include desktopHd(){
             width: 85%;
-            bottom: -195%;
+            bottom: -201%;
             right: 52%;
             
+          }
+          @include desktop(){
+            bottom: -209%;
           }
       }
       .budda-cloud2{
         bottom: -232%;
+        z-index: 2;
           @include desktopHd(){
-            bottom: -295%;
+            bottom: -222%;
+            width: 50%;
+            right: 50%;
           }
           @include desktop{
-              bottom: -196%;
+            bottom: -208%;
           }
       }
     }
@@ -283,39 +291,43 @@
       }
       .budda-par{
         width: 40%;
-        bottom: -544%;
+        bottom: -720%;
         right: -5%;
         @include desktopHd(){
           width: 13%;
-          bottom: -422%;
+          bottom: -465%;
           right: 58%;
         }
+        @media screen and (max-width: 1500px){
+          bottom: -390%;
+        }
         @include desktop{
-              bottom: -380%;
+              bottom: -390%;
         }
       }
       .budda-cloud3{
-        bottom: -255%;
+        bottom: -287%;
           @include desktopHd(){
-            bottom: -249%;
+            bottom: -251%;
             width: 45%;
           }
           @include desktop{
-              bottom: -250%;
+            bottom: -260%;
           }
       }
       .budda-cloud1{
-        bottom: -244%;
-        right: -23%;
-            @include desktopHd(){
-              bottom: -255%;
-              width: 96%;
-              right: 23%;
-            }
-            @include desktop{
-
-            }
+        bottom: -287%;
+        right: -26%;    
+        }
+        @include desktopHd(){
+          width: 96%;
+          bottom: -263%;
+          right: 15%;
+        }
+        @include desktop{
+          bottom: -259%;
+           right: 23%;
+        }
       }
     }
   }
-}

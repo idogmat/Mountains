@@ -122,10 +122,26 @@
   }
   &__title{
     position: absolute;
-    top: 38%;
-    left: 21%;
+    top: 41%;
+    left: 22%;
     width: 55%;
     text-align: center;
+    /* position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 45%;
+    text-align: center;
+    transform: translate(-71%,-78%); */
+    /* @include desktopHd(){
+      top: 41%;
+      left: 30%;
+      width: 40%;
+    }
+    @include desktop(){
+      top: 41%;
+      left: 30%;
+      width: 40%;
+    } */
   }
   }
   .user-skills{
@@ -146,14 +162,14 @@
   .skills-row{
     &__list{
       display: flex;
-      flex-flow: row nowrap;
+      flex-flow: row wrap;
     @include phones{
       flex-wrap: wrap;
       justify-content: center;
     }
     }
     &__item{
-      width: 40%;
+      width: 25%;
 
     }
     &__title{
