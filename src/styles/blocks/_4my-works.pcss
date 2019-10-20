@@ -31,6 +31,9 @@
     height: 550px;
   }
   &__left{
+    justify-content: center;
+    width: 85%;
+    margin: 0 auto;
     @include desktop(){
       justify-content: center;
       width: 85%;
@@ -46,6 +49,7 @@
     width: 30%;
     justify-content: space-around;
     flex-direction: column;
+    z-index: 10;
     @include tablets(){
       padding-top: 30px;
       flex-flow: column wrap;
@@ -109,6 +113,24 @@
 }
 .slider{
   position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  &:before{
+    position: absolute;
+    content: attr(data-slide);
+    transform: translate(-35%, -60%);
+    top: 50%;
+    left: 100%;
+    font-size: 25rem;
+    font-weight: 900;
+    color: #e6e6e6;
+    z-index: -1;
+  }
+  &__fullpic{
+    height: 100%;
+    width: 100%;
+  }
   &__previews{
     position: absolute;
     right: 0;
@@ -116,16 +138,6 @@
     width: 20%;
     .previews__item{
       background: #5500f2;
-    }
-    &__pic{
-      width: 100%;
-      height: 100%;
-      &:hover{
-        outline: 2px solid #5500f2;
-      }
-    &:active{
-      opacity: .4;
-    }
     }
   }
   &__buttons{
@@ -189,4 +201,17 @@
   width: 25px;
   height: 15px;
   padding-right: 10px;
+}
+.previews__pic{
+    width: 100%;
+    height: 100%;
+    &:hover{
+      outline: 2px solid #5500f2;
+    }
+  &:active{
+    opacity: .4;
+  }
+}
+.active{
+  outline: 2px solid #5500f2;
 }

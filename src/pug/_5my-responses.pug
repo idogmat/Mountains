@@ -1,14 +1,14 @@
 
-section.my-responses(id='my-responses')
+section.my-responses(id='my-responses' @click= "checkArrows" @touchhend="checkArrows")
   .nav-slider-responses
     h3.nav-slider-responses-h3 Что обо мне говорят
     .toggle-arrows
-      a.toggle-arrow.toggle-arrow__left(href="")
+      button.toggle-arrow.toggle-arrow__left(href="" @click="previous()" :disabled= 'true')
         +icon('arrow-down','arrow-left')
-      a.toggle-arrow.toggle-arrow__right(href="")
+      button.toggle-arrow.toggle-arrow__right(href="" @click="next()" :disabled= 'false')
         +icon('arrow-down','arrow-right')
   .move-slider
-    .slider-responses
+    flickity(ref="flickity" :options="flickityOptions").slider-responses
       .slider-responses-block
         +icon('quote', 'quote')
         .slider-respons

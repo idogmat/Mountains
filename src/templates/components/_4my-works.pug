@@ -2,48 +2,61 @@ script(type="text/x-template")#slider-container
   section.my-works(id='my-works')
     h2.my-works__title Мои работы
     .my-works__block
-      display()
-      info()
+      display(
+        :works="works"
+        :current-work="currentWork"
+        :currentIndex="currentIndex"
+        @slide="handleSlide"
+      )
+      info(
+        :current-work="currentWork"
+      )
 
 script(type="text/x-template")#slider-display
   .my-works__left
-    .slider
-      +image('content/my-work-prew.png', 'slider__fillpic')
-      thambs()
-      btns()
+    .slider(:data-slide="currentIndex + 1")
+      img(:src="currentWork.photo" alt="fullpic").slider__fullpic
+      thambs(
+        :works="works"
+        :current-work="currentWork"
+      )
+      btns(
+        @slide="$emit('slide', $event)"
+      )
 
 script(type="text/x-template")#slider-btns     
   .slider__buttons
     .slider-button
-      button.slider-buttons__item
+      button(@click.prevent="$emit('slide', 'next')").slider-buttons__item
         +icon('arrow-down','slider-buttons__item--slide--prev')
-      button.slider-buttons__item
+      button(@click.prevent="$emit('slide', 'prev')").slider-buttons__item
         +icon('arrow-down','slider-buttons__item--slide--next')
 
 script(type="text/x-template")#slider-thambs
   .slider__previews
     ul.previews
-      li.previews__item
-        +image('content/my-work-min4.png', 'slider__previews__pic').previews__pic
-      li.previews__item
-        +image('content/my-work-min3.png', 'slider__previews__pic').previews__pic
-      li.previews__item
-        +image('content/my-work-min2.png', 'slider__previews__pic').previews__pic
-      li.previews__item
-        +image('content/my-work-min1.png', 'slider__previews__pic').previews__pic
+      li.previews__item(
+        v-for="work in reverseWorks"
+        :key="work.id"
+        :class="{active: work.id === currentWork.id }"
+        )
+          a.previews__thumb-link
+            img(:src="work.photo" alt="mini-pic").previews__pic
 
 script(type="text/x-template")#slider-info      
   .my-works__right
-    tags()
+    tags(
+      :tags ="tagsArray"
+      )
     .my-works__text
-      h1.my-works__h3 Сайт школы образования
+      h1.my-works__h3 {{currentWork.title}}
     .my-works__desc-text
-      p.my-works__p Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
-    a.my-works__link(href="#")
+      p.my-works__p {{currentWork.desc}}
+    a.my-works__link(:href="currentWork.link")
       +icon('link', 'works__link')
       p.works__show Посмотреть сайт
 
-script(type="text/x-template")#slider-tags 
-  .my-works__tags
-    ul.tags
-      li.tags__item 
+script(type="text/x-template")#slider-tags
+  ul.my-works__tags
+    li.tags(v-for="tag in tags")
+      .tags__item {{tag}}
