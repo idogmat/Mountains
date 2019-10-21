@@ -1,0 +1,34 @@
+script(type="text/x-template")#responses-display
+  section.my-responses(id='my-responses' @click="checkArrows();" @touchend="checkArrows();")
+    .nav-slider-responses
+      h3.nav-slider-responses-h3 Что обо мне говорят
+      .toggle-arrows
+        button.toggle-arrow.toggle-arrow__left(href="" @click="previous")
+          +icon('arrow-down','arrow-left' )
+        button.toggle-arrow.toggle-arrow__right(href=""  @click="next")
+          +icon('arrow-down','arrow-right')
+    sliders(
+      :charecters="charecters"
+    )
+
+script(type="text/x-template")#responses-slider
+  .move-slider
+    flickity(ref="flickity" :options="flickityOptions").slider-responses
+      .slider-responses-block(v-for="charecter in charecters" :key="charList")
+        sliderBlock(
+          :charecter="charecter"
+        )
+      
+
+script(type="text/x-template")#responses-block
+  .slider-respons
+    +icon('quote', 'quote')
+    p.slider-respons-p {{charecter.responses}}
+      .mentor
+        .mentor-photo
+          img(:src="charecter.photo" alt="mini-pic")
+          //- +image('content/mentor1.png', 'mentor1')
+        .mentor-name
+          h3.mentor-name-h3 {{charecter.name}}
+          p.mentor-name-p {{charecter.profession}}
+        

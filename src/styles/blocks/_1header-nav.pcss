@@ -271,6 +271,9 @@
         }
         .sky-par{
           bottom: -40%
+          @include desktop(){
+            bottom: -22%;
+          }
         }
         .mountain-par{
           @media screen and (max-width: 1450px){
@@ -293,10 +296,11 @@
     &__block__ballum{
       position: absolute;
       min-height: 650px;
-      top: 0;
+      top: 10;
       right: 0;
       left: 0;
       will-change: transform;
+
       .par-eff{
         object-fit: cover;
         position: absolute;
@@ -319,7 +323,7 @@
       .white-par{
         width: 100%;
         /* bottom: -217%; */
-        bottom: -173%;
+        bottom: -215%;
         z-index: 4;
         margin-bottom: 0;
         @include desktopHd(){
@@ -336,10 +340,16 @@
         }
       }
       .man-par{
+        width: 115%;
+        top: 80%;
+        left: -10%;
+        z-index: 2;
+        @include desktopHd(){
         width: 75%;
         top: 80%;
         left: -10%;
         z-index: 2;
+        }
         @media screen and (max-width: 1450px){
           width: 85%;
           top: 100%;
