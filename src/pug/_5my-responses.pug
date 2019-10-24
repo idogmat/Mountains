@@ -3,9 +3,9 @@ section.my-responses(id='my-responses' @click= "checkArrows" @touchhend="checkAr
   .nav-slider-responses
     h3.nav-slider-responses-h3 Что обо мне говорят
     .toggle-arrows
-      button.toggle-arrow.toggle-arrow__left(href="" @click="previous()" :disabled= 'true')
+      button.toggle-arrow.toggle-arrow__left(@click="previous()" :disabled= 'true')
         +icon('arrow-down','arrow-left')
-      button.toggle-arrow.toggle-arrow__right(href="" @click="next()" :disabled= 'false')
+      button.toggle-arrow.toggle-arrow__right(@click="next()" :disabled= 'false')
         +icon('arrow-down','arrow-right')
   .move-slider
     flickity(ref="flickity" :options="flickityOptions").slider-responses

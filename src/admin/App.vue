@@ -74,7 +74,7 @@ html(lang="en")
           .admin-about__nav.admin-morks__nav
             h3.admin-about__nav__h3.admin-morks__nav__h3 Блок «Работы»
           .admin-morks__block-works
-            .admin-morks__edit-block____________________________________________________________
+            .admin-morks__edit-block
               .admin-morks__edit-block__img
                 .admin-morks__edit-block__img__block
               .admin-morks__edit-block__info
