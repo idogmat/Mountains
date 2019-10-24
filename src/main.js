@@ -7,6 +7,5 @@ import "./scripts/parallax";
 import "./scripts/skills";
 import "./scripts/works";
 import "./scripts/slider-responses";
-import "./scripts/slider-flickity";
 import "./scripts/mini-menu";
 import "./scripts/submit";

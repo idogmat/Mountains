@@ -58,6 +58,7 @@
     "signale": "^1.4.0",
     "vue": "^2.6.10",
     "vue-flickity": "^1.2.1",
+    "vue-flickity-tf": "^1.1.3",
     "vue-router": "^3.0.2",
     "yarn": "^1.19.0"
   },

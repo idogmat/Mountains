@@ -35,3 +35,4 @@ window.onscroll = function(){
     parallax.init(wScroll);
     // svgScroll.grow(wScroll);
 }
+
