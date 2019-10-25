@@ -5,18 +5,18 @@ section.submit-me(id='submit-me')
       .form-block__name-email
         .form-block__label
           span.form-block__span Введите ваше имя
-          label.form-label(for="")
+          label.form-label(for="name")
             +icon('user','svg-form svg-user')
-            input.form-input(type="name" name="name" placeholder="Евгений Родин" onFocus="this.placeholder='';" required)
+            input.form-input-name.form-input(type="name" name="name" placeholder="Евгений Родин" onFocus="this.placeholder='';" required)
         .form-block__label
           span.form-block__span Введите ваш email
-          label.form-label(for="")
+          label.form-label(for="email")
             +icon('envelope','svg-form svg-envelope')
-            input.form-input(type="email" name="email" class="form-input" placeholder="loftschool@study.com" onFocus="this.placeholder='';" required)
+            input.form-input-email.form-input(type="email" name="email" class="form-input" placeholder="loftschool@study.com" onFocus="this.placeholder='';" required)
       .form-message
         .form-block__label
           span.form-block__span Сообщение к письму
           .form-label
             +icon('message','svg-form svg-message')
-            textarea.form-input.form-input-message(type="text" placeholder="Требуется ваша помощь в создании сайта.\nИнтересуют сроки и цена вопроса" onFocus="this.placeholder='';")
-    button.form-submit Отправить
+            textarea.form-input.form-input-message(type="text" name="comment" placeholder="Требуется ваша помощь в создании сайта.\nИнтересуют сроки и цена вопроса" onFocus="this.placeholder='';" required)
+    button.form-submit(id="sendButton") Отправить

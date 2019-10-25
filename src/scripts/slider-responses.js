@@ -29,11 +29,15 @@ const sliders = {
         checkArrows(){
             if  (this.$refs.flickity.selectedIndex() == 0 ) {
                 this.$el.parentNode.querySelector('.toggle-arrow__left').disabled = true;
+                this.$el.parentNode.querySelector('.toggle-arrow__left').classList.add('toggle-arrows-disabled');
             } else if (this.$refs.flickity.selectedIndex() ==  this.$refs.flickity.slides().length -1) {
                 this.$el.parentNode.querySelector('.toggle-arrow__right').disabled = true;
+                this.$el.parentNode.querySelector('.toggle-arrow__right').classList.add('toggle-arrows-disabled');
             } else {
                 this.$el.parentNode.querySelector('.toggle-arrow__left').disabled = false;
                 this.$el.parentNode.querySelector('.toggle-arrow__right').disabled = false;
+                this.$el.parentNode.querySelector('.toggle-arrow__left').classList.remove('toggle-arrows-disabled');
+                this.$el.parentNode.querySelector('.toggle-arrow__right').classList.remove('toggle-arrows-disabled');
             }
         }
     }

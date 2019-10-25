@@ -32,11 +32,11 @@ html(lang="en")
           .admin-about__skills
             .admin-about__skills__block
               .admin-about__skills__block__skill
-                .admin-about__skills__block__skill__name
-                  input.input-form.input-name(type="text" placeholder="Название новой группы")
+                form.admin-about__skills__block__skill__name
+                  input.input-form.input-name(type="text" placeholder="Название новой группы" required)
                   .admin-about__skills__block__skill__btns
-                    button.btn-accept
-                    button.btn-decline
+                    button(type="submit").btn-accept
+                    button(type="reset").btn-decline
                 .admin-about__skills__block__skill__list
                   .admin-about__skills__block__skill__list__block
                     .admin-about__skills__block__skill__list__item
@@ -45,18 +45,18 @@ html(lang="en")
                     .admin-about__skills__block__skill__list__btns
                       button.btn-edit
                       button.btn-trash
-                .admin-about__skills__block__skill__level
-                  input.input-form.add-new-skill(type="text" placeholder="Новый навык")
-                  input.input-form.add-new-skill-percent(type="text")
+                form.admin-about__skills__block__skill__level
+                  input.input-form.add-new-skill(type="text" placeholder="Новый навык" required)
+                  input.input-form.add-new-skill-percent(type="text" required)
                   .admin-about__skills__block__skill__level__btn
-                    button.btn-add-skill
+                    button(type="submit").btn-add-skill
             .admin-about__skills__block
               .admin-about__skills__block__skill
-                  .admin-about__skills__block__skill__name
-                    input.input-form.input-name(type="text" placeholder="Название новой группы")
+                  form.admin-about__skills__block__skill__name
+                    input.input-form.input-name(type="text" placeholder="Название новой группы" required)
                     .admin-about__skills__block__skill__btns
-                      button.btn-accept
-                      button.btn-decline
+                      button(type="submit").btn-accept
+                      button(type="reset").btn-decline
                   .admin-about__skills__block__skill__list
                     .admin-about__skills__block__skill__list__block
                       .admin-about__skills__block__skill__list__item
@@ -70,56 +70,99 @@ html(lang="en")
                     input.input-form.add-new-skill-percent(type="text")
                     .admin-about__skills__block__skill__level__btn
                       button.btn-add-skill       
-        section.admin-about.admin-morks
-          .admin-about__nav.admin-morks__nav
-            h3.admin-about__nav__h3.admin-morks__nav__h3 Блок «Работы»
-          .admin-morks__block-works
-            .admin-morks__edit-block
-              .admin-morks__edit-block__img
-                .admin-morks__edit-block__img__block
-              .admin-morks__edit-block__info
-                .admin-morks__edit-block__info__name
-                  span Название
-                  input.input-form(type="text")
-                .admin-morks__edit-block__info__link
-                  span Ссылка
-                  input.input-form(type="text")
-                .admin-morks__edit-block__info__description
-                  span Описание
-                  textarea(type="text")
-                .admin-morks__edit-block__info__add-tags
-                  span Добавление тэга
-                  input.input-form(type="text")
-                .admin-morks__edit-block__info__add-tags
-                .admin-morks__edit-block__info__btns
-                  button.admin-morks__edit-block__info__btns__cancel
-                  button.admin-morks__edit-block__info__btns__save
-            .admin-morks__view
-              .admin-morks__add-block
-              .admin-morks__block
-                .admin-morks__block__img-tags
-                  .admin-morks__block__img
-                  .admin-morks__block__tag
-                .admin-morks__block__info
-                  h6.admin-morks__block__title Сайт школы образования
-                  p.admin-morks__block__text Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!
-                  a.admin-morks__block__link http://loftschool.ru
-                  .admin-morks__btn__edit-del
-                    a.admin-morks__btn__edit Править
-                    a.admin-morks__btn__del Удалить
-        section.admin-reviews
-          .admin-reviews__nav
-            h3.admin-morks__nav__h3 Блок «Отзывы»
-          .admin-reviews__blocks
+        section.admin-about.admin-works
+          .admin-about__nav.admin-works__nav
+            h3.admin-about__nav__h3.admin-works__nav__h3 Блок «Работы»
+          .admin-works__block-works
+            .admin-works__edit-block
+              h3.admin-works__edit-block__h3 Редактирование работы
+              form.admin-works__edit-block__section
+                .admin-works__edit-block__img
+                  .admin-works__edit-block__img__block
+                .admin-works__edit-block__info
+                  .admin-works__edit-block__info__name
+                    span.input-name Название
+                    input.input-form(type="text" required)
+                  .admin-works__edit-block__info__link
+                    span.input-name Ссылка
+                    input.input-form(type="text" required)
+                  .admin-works__edit-block__info__description
+                    span.input-name Описание
+                    textarea(type="text" required)
+                  .admin-works__edit-block__info__add-tags
+                    span.input-name Добавление тэга
+                    input.input-form(type="text" required)
+                  .admin-works__edit-block__info__tags-view
+                    .admin-works__edit-block__info__tags
+                      .admin-works__edit-block__info__tag html
+                      .admin-works__edit-block__info__tag css
+                      .admin-works__edit-block__info__tag javaScript
+                      .admin-works__edit-block__info__tag vue
+                  .admin-works__edit-block__info__btns
+                    button.btn-cancel Отмена
+                    button(type="submit").btn-save Сохранить
+            .admin-works__view
+              button.add-block.admin-works__add-block
+               p.add-block-text Добавить работу 
+              .admin-works__block
+                .admin-works__block__img-tags
+                  .admin-works__block__tags
+                    .admin-works__block__tag html
+                    .admin-works__block__tag css
+                    .admin-works__block__tag javaScript
+                .admin-works__block__info
+                  h3.admin-works__block__title Сайт школы образования
+                  p.admin-works__block__text Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!
+                  a.admin-works__block__link http://loftschool.ru
+                .admin-works__btn__edit-del
+                  button.admin-works__btn__edit
+                    p.btn-edit__text Править
+                    .btn-edit
+                  button.admin-works__btn__del
+                    p.btn-decline__text Удалить
+                    .btn-decline
+        section.admin-about.admin-reviews
+          .admin-about__nav.admin-reviews__nav
+            h3.admin-about__nav__h3.admin-works__nav__h3 Блок «Отзывы»
+          .admin-works__block-works.admin-reviews__blocks
+            .admin-works__edit-block.admin-reviews__edit-block
+              h3.admin-works__edit-block__h3.admin-reviews__edit-block__h3 Новый «Отзыв»
+              form.admin-reviews__edit-block__section
+                .admin-reviews__edit-block__section__add-photo
+                  .admin-reviews__edit-block__section__photo
+                  a.admin-reviews__edit-block__section__photo-link Добавить фото
+                .admin-reviews__edit-block__section__info
+                  .admin-reviews__edit-block__section__info__head
+                    .admin-reviews__edit-block__section__info__head__input
+                      span.input-name Имя автора
+                      input.input-form(type="text" required)
+                    .admin-reviews__edit-block__section__info__head__input
+                      span.input-name Титул автора
+                      input.input-form(type="text" required)
+                  .admin-reviews__edit-block__section__info__bot
+                    span.input-name Отзыв
+                    textarea.input-textarea(type="text" required)
+                  .admin-reviews__edit-block__section__info__btns
+                    button(type="reset").btn-cancel Отменить
+                    button(type="submit").btn-save Сохранить
+            .admin-works__view.admin-reviews__blocks__view-block
+              button.add-block.admin-reviews__blocks__new-block
+                p.add-block-text Добавить отзыв
+              .admin-works__block.admin-reviews__block__review
+                .admin-reviews__block__review__person
+                  .admin-reviews__block__review__person__photo
+                  .admin-reviews__block__review__person__name-prof
+                    p.admin-reviews__block__review__person__name Владимир Сабанцев
+                    p.admin-reviews__block__review__person__prof Преподаватель
+                p.admin-reviews__block__review__text Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах
+                .admin-reviews__block__review__btns
+                  button.admin-works__btn__edit
+                    p.btn-edit__text Править
+                    .btn-edit
+                  button.admin-works__btn__del
+                    p.btn-decline__text Удалить
+                    .btn-decline
             .admin-reviews__blocks__new-block 
-              h4.admin-reviews__blocks__new-block__h4 Новый «Отзыв»
-              .admin-reviews__blocks__new-block__edit
-            .admin-reviews__blocks__view-block
-              .admin-reviews__blocks__view-block__add-review
-              .admin-reviews__blocks__view-block__review
-                .admin-reviews__blocks__view-block__review__person
-                .admin-reviews__blocks__view-block__review__text
-                .admin-reviews__blocks__view-block__review__btns
 
 
 </template>
@@ -154,7 +197,7 @@ body {
 }
 
 section {
-  height: 100vh;
+  height: 200vh;//100
   min-height: 650px;
 }
 
@@ -202,8 +245,81 @@ img {
   max-width: 100%;
   max-height: 100%;
 }
-//header
+//btns
+.btn-accept{
+width: 20px;
+height: 20px;
+background: svg-load("tick.svg", fill="#00d70a") center center no-repeat / contain;
+}
+.btn-decline{
+width: 20px;
+height: 20px;
+background: svg-load("remove.svg", fill="#bf2929") center center no-repeat / contain;
+
+}
+.btn-edit{
+width: 20px;
+height: 20px;
+background: svg-load("pencil.svg", fill="#a0a5b1") center center no-repeat / contain;
+&:hover{
+  background: svg-load("pencil.svg", fill="#00d70a") center center no-repeat / contain;
+}
+}
+.btn-trash{
+width: 20px;
+height: 20px;
+background: svg-load("trash.svg", fill="#a0a5b1") center center no-repeat / contain;
+&:hover{
+background: svg-load("trash.svg", fill="#bf2929") center center no-repeat / contain;
+} 
+}
+.btn-add-skill{
+  height: 35px;
+  width: 35px;
+  /* background:linear-gradient(#e66465, #9198e5); */
+  background: svg-load("remove.svg", fill="#fff") center center no-repeat / center;
+  transform: rotate(45deg)
+}
+.btn-cancel{
+  margin-top: 3.75rem;
+  font-size: 1.125rem;
+  line-height: 3rem;
+  font-weight: 700;
+  width: 180px;
+  height: 60px;
+  color: #383bcf;
+  background: transparent;
+  border-radius: 50px;
+}
+.btn-save{
+  margin-top: 3.75rem;
+  font-size: 1.125rem;
+  line-height: 3rem;
+  font-weight: 700;
+  width: 180px;
+  height: 60px;
+  text-transform: uppercase;
+  color: #fff;
+  background: linear-gradient(-.9turn,#1558e2,#3f35cb);
+  border-radius: 50px;
+}
+.add-block{
+  width: 340px;
+  height: 560px;
+  background: svg-load("plus.svg", fill="#fff") no-repeat center, linear-gradient(0turn,#1559e2,#3f35cb );
+  background-size: 50%;
+}
+.add-block-text{
+    display: flex;
+    margin: 75% auto 0 auto;
+    justify-content: center;
+    color: #fff;
+    font-weight: 600;
+    font-size: 18px;
+}
+//header-skill
 .input-form{
+  height: 30px;
   border:none;
   border-bottom:solid 1px;
 }
@@ -287,13 +403,6 @@ img {
       width: 35px;
       background:linear-gradient(#1756e1, #3f35cb);
       border-radius:50%;
-    .btn-add-skill{
-      height: 35px;
-      width: 35px;
-      /* background:linear-gradient(#e66465, #9198e5); */
-      background: svg-load("remove.svg", fill="#fff") center center no-repeat / center;
-      transform: rotate(45deg)
-    }
     }
     }
   }
@@ -342,7 +451,7 @@ img {
         }
         .add-new-skill-percent{
           width: 10%;
-          margin: 0 0 0 5%;
+          margin: 0 5%;
           &:after{
             content:"%";
             /* margin: 0 5%; */
@@ -408,33 +517,300 @@ img {
     }
   }
 }
-.btn-accept{
-width: 20px;
-height: 20px;
-background: svg-load("tick.svg", fill="#00d70a") center center no-repeat / contain;
-}
-.btn-decline{
-width: 20px;
-height: 20px;
-background: svg-load("remove.svg", fill="#bf2929") center center no-repeat / contain;
+
+//works
+.admin-works{
+  &__block-works{
+    height: 70%;
+    flex-flow: column wrap;
+  }
+  &__edit-block{
+    padding: 2%;
+    background: #fff;
+    display: flex;
+    flex-flow: column wrap;
+    height: 775px;
+    justify-content: space-between;
+    &__section{
+      display: flex;
+      flex-flow: row nowrap;
+      height: 80%;
+    }
+    &__h3{
+      margin: auto 0;
+      height: 10%;
+      border-bottom: solid 1px;
+    }
+    &__img{
+      width: 50%;
+      __block{
+
+      }
+    }
+    &__info{
+      width: 50%;
+      display:flex;
+      flex-flow:column nowrap;
+      justify-content:space-between;
+      &__name{
+        height: 10%;
+        width: 100%;
+        display:flex;
+        flex-flow:column nowrap;
+        justify-content: space-between;
+      }
+      &__link{
+        height: 10%;
+        width: 100%;
+        display:flex;
+        flex-flow:column nowrap;
+        justify-content: space-between;
+      }
+      &__description{
+        height: 10%;
+        width: 100%;
+        display:flex;
+        flex-flow:column nowrap;
+        justify-content: space-between;
+      }
+      &__add-tags{
+        height: 10%;
+        width: 100%;
+        display:flex;
+        flex-flow:column nowrap;
+        justify-content: space-between;
+      }
+      &__tags-view{
+        display:flex;
+        flex-flow: row wrap;
+      }
+      &__tags{
+        display: flex;
+        width: 10%;
+        justify-content: flex-start;
+      }
+      &__tag{
+        margin: 0 5%;
+        display: flex;
+        border-radius: 20px;
+        padding: 0 0.9375rem;
+        background: #f3f5f9;
+        font-size: 0.9375rem;
+        font-weight: 600;
+        line-height: 3rem;
+      }
+      &__btns{
+        display:flex;
+        justify-content: flex-end;
+
+      }
+    }
+  }
+  &__view{
+    padding-top: 2%;
+    display: flex;
+    flex-flow: row wrap;
+  }
+  &__block{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    margin:0 2%;
+    width: 340px;
+    height: 560px;
+    background: #fff;
+    &__img-tags{
+      height: 40%;
+      background: url('~images/content/my-work1.jpg');
+      background-size: contain;
+    }
+      &__tags{
+        display: flex;
+        padding: 2%;
+        width: 100%;
+        height: 100%;
+        justify-content: flex-end;
+        flex-flow: row wrap;
+      }
+      &__tag{
+        margin: 0 2%;
+        display: flex;
+        justify-content: flex-end;
+        align-self: flex-end;
+        flex-flow: row wrap;
+        border-radius: 20px;
+        height: 30px;
+        padding: 0 8px;
+        background: #f3f5f9;
+        font-size: 13px;
+        font-weight: 600;
+        line-height: 2rem;
+      }
+    &__info{
+      height: 40%;
+    }
+    &__edit-del{
+      height: 20%;
+    }
+    &__info{
+      padding: 5%;
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: space-between;
+    }
+    &__title{
+      padding: 5% 0;
+    }
+    &__link{
+      padding: 5% 0;
+    }
+
+  }
 
 }
-.btn-edit{
-width: 20px;
-height: 20px;
-background: svg-load("pencil.svg", fill="#a0a5b1") center center no-repeat / contain;
-&:hover{
-  background: svg-load("pencil.svg", fill="#00d70a") center center no-repeat / contain;
+.admin-works__btn__edit-del{
+  height: 20%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
 }
+.admin-works__btn__edit{
+  display: flex;
+  justify-content: flex-start;
+  background: #fff;
+  width: 40%;
+  .btn-edit{
+    display: flex;
+    width: 30%;
+    align-self: center;
+    &__text{
+    font-weight: 600;
+    font-size:16px;
+    color:#414c63;
+    }
+  }
 }
-.btn-trash{
-width: 20px;
-height: 20px;
-background: svg-load("trash.svg", fill="#a0a5b1") center center no-repeat / contain;
-&:hover{
-background: svg-load("trash.svg", fill="#bf2929") center center no-repeat / contain;
-} 
+.admin-works__btn__del{
+  display: flex;
+  justify-content: flex-start;
+  background: #fff;
+  width: 40%;
+  .btn-decline{
+    display: flex;
+    width: 30%;
+    align-self: center;
+    &__text{
+    font-weight: 600;
+    font-size:16px;
+    color:#414c63;
+    }
+  }
 }
+///reviews
+.admin-reviews{
+  &__edit-block{
+    &__section{
+      display: flex;
+      flex-flow:row nowrap;
+      height: 70%;
+      &__add-photo{
+        width: 30%;
+      }
+      &__add-photo{
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: space-around;
+      }
+      &__photo{
+        display: flex;
+        justify-content: center;
+        height: 75%;
+        border-radius: 50%;
+        background: svg-load("man-user.svg", fill="#fff") no-repeat center, #dee4ed;
+        background-size: 50%;
+      }
+      &__photo-link{
+        margin: 0 auto;
+        color: #1558e2;
+        font-weight: 700;
+      }
+      &__info{
+        padding-left: 5%;
+        width: 50%;
+        &__head{
+          height: 30%;
+          display:flex;
+          justify-content: space-between;
+          flex-flow:row nowrap;
+          &__input{
+            width: 45%;
+            display:flex;
+            flex-flow:column nowrap;
+          }
+        }
+        &__bot{
+          height: 30%;
+          display:flex;
+          flex-flow:column nowrap;
+          .input-textarea{
+            height: 70%;
+          }
+        }
+        &__btns{
+          display: flex;
+          justify-content: flex-end;
+          height: 30%;
+        }
+      }
+    }
 
+  }
+}
+.admin-reviews{
+  &__blocks{
+    
+  }
+  &__block{
+    &__review{
+      padding: 2%;
+      &__person{
+        height: 20%;
+        display:flex;
+        flex-flow: row nowrap;
+        border-bottom: solid 1px;
+        &__photo{
+          height: 100%;
+          width: 30%;
+          background: url('~images/content/mentor1.png') no-repeat center;
+        }
+        &__name-prof{
+          display: flex;
+          flex-flow: column nowrap;
+          margin: auto;
+          width: 60%;
+        }
+        &__name{
+          font-size: 18px;
+          font-weight: 600;
+        }
+        &__prof{
+          font-size: 16px;
+
+        }
+      }
+      &__text{
+        height: 40%;
+        display: flex;
+        justify-content: flex-start;
+      }
+      &__btns{
+        height: 30%;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+      }
+    }
+  }
+}
 
 </style>
