@@ -8,4 +8,5 @@ import "./scripts/skills";
 import "./scripts/works";
 import "./scripts/slider-responses";
 import "./scripts/mini-menu";
-import "./scripts/submit";
+import "./scripts/submit-vue";
+// import "./scripts/submit";

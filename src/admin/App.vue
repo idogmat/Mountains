@@ -7,6 +7,22 @@ html(lang="en")
     meta(http-equiv="X-UA-Compatible", content="ie=edge")
     title Portfolio | admin
   body
+    .valid-messege
+      .valid-messege__great Сообщение отправлено
+      .valid-messege__server-load Сервер перегружен
+      .valid-messege__bad Сообщение не отправлено
+    .admin-login
+      .admin-login__overlay
+      .admin-login__block
+        .admin-login__h3 Авторизация
+        form.admin-login__form
+          .admin-login__form__login
+            span.input-name Логин
+            input.input-form(type="text" required)
+          .admin-login__form__password
+            span.input-name Пароль
+            input.input-form(type="text" required)
+          button.admin-login__form__btn Отправить
     header.header-admin
       .container.header-admin__container
         .header-admin__block
@@ -41,13 +57,13 @@ html(lang="en")
                   .admin-about__skills__block__skill__list__block
                     .admin-about__skills__block__skill__list__item
                       input.input-form.input-skill(type="text" disabled)
-                      input.input-form.input-skill-percent(type="text" disabled)
+                      input.input-form.input-skill-percent(type="number" min="0" max="100"  required)
                     .admin-about__skills__block__skill__list__btns
                       button.btn-edit
                       button.btn-trash
                 form.admin-about__skills__block__skill__level
                   input.input-form.add-new-skill(type="text" placeholder="Новый навык" required)
-                  input.input-form.add-new-skill-percent(type="text" required)
+                  input.input-form.add-new-skill-percent(type="number" min="0" max="100"  required)
                   .admin-about__skills__block__skill__level__btn
                     button(type="submit").btn-add-skill
             .admin-about__skills__block
@@ -61,15 +77,43 @@ html(lang="en")
                     .admin-about__skills__block__skill__list__block
                       .admin-about__skills__block__skill__list__item
                         input.input-form.input-skill(type="text" disabled)
-                        input.input-form.input-skill-percent(type="text" disabled)
+                        input.input-form.input-skill-percent(type="number" min="0" max="100"  required)
                       .admin-about__skills__block__skill__list__btns
                         button.btn-edit
                         button.btn-trash
-                  .admin-about__skills__block__skill__level
-                    input.input-form.add-new-skill(type="text" placeholder="Новый навык")
-                    input.input-form.add-new-skill-percent(type="text")
+                    .admin-about__skills__block__skill__list__block
+                      .admin-about__skills__block__skill__list__item
+                        input.input-form.input-skill(type="text" disabled)
+                        input.input-form.input-skill-percent(type="number" min="0" max="100"  required)
+                      .admin-about__skills__block__skill__list__btns
+                        button.btn-edit
+                        button.btn-trash
+                    .admin-about__skills__block__skill__list__block
+                      .admin-about__skills__block__skill__list__item
+                        input.input-form.input-skill(type="text" disabled)
+                        input.input-form.input-skill-percent(type="number" min="0" max="100"  required)
+                      .admin-about__skills__block__skill__list__btns
+                        button.btn-edit
+                        button.btn-trash
+                    .admin-about__skills__block__skill__list__block
+                      .admin-about__skills__block__skill__list__item
+                        input.input-form.input-skill(type="text" disabled)
+                        input.input-form.input-skill-percent(type="number" min="0" max="100"  required)
+                      .admin-about__skills__block__skill__list__btns
+                        button.btn-edit
+                        button.btn-trash
+                    .admin-about__skills__block__skill__list__block
+                      .admin-about__skills__block__skill__list__item
+                        input.input-form.input-skill(type="text" disabled)
+                        input.input-form.input-skill-percent(type="number" min="0" max="100"  required)
+                      .admin-about__skills__block__skill__list__btns
+                        button.btn-edit
+                        button.btn-trash
+                  form.admin-about__skills__block__skill__level
+                    input.input-form.add-new-skill(type="text" placeholder="Новый навык" required)
+                    input.input-form.add-new-skill-percent(type="number" min="0" max="100"  required)
                     .admin-about__skills__block__skill__level__btn
-                      button.btn-add-skill       
+                      button(type="submit").btn-add-skill       
         section.admin-about.admin-works
           .admin-about__nav.admin-works__nav
             h3.admin-about__nav__h3.admin-works__nav__h3 Блок «Работы»
@@ -77,8 +121,11 @@ html(lang="en")
             .admin-works__edit-block
               h3.admin-works__edit-block__h3 Редактирование работы
               form.admin-works__edit-block__section
-                .admin-works__edit-block__img
-                  .admin-works__edit-block__img__block
+                .admin-works__edit-block__section__img
+                  label(for="image").admin-works__edit-block__img
+                    .admin-works__edit-block__img__block Перетащите либо загрузите изображение
+                    input(type="file" name="image").admin-works__edit-block__img__input
+                    button(type="button").admin-works__edit-block__img__btn Загрузить
                 .admin-works__edit-block__info
                   .admin-works__edit-block__info__name
                     span.input-name Название
@@ -88,7 +135,7 @@ html(lang="en")
                     input.input-form(type="text" required)
                   .admin-works__edit-block__info__description
                     span.input-name Описание
-                    textarea(type="text" required)
+                    textarea.admin-works__edit-block__info__description__text(type="text" required)
                   .admin-works__edit-block__info__add-tags
                     span.input-name Добавление тэга
                     input.input-form(type="text" required)
@@ -245,6 +292,10 @@ img {
   max-width: 100%;
   max-height: 100%;
 }
+span{
+  font-size: 18px;
+  font-weight: 500;
+}
 //btns
 .btn-accept{
 width: 20px;
@@ -308,6 +359,12 @@ background: svg-load("trash.svg", fill="#bf2929") center center no-repeat / cont
   height: 560px;
   background: svg-load("plus.svg", fill="#fff") no-repeat center, linear-gradient(0turn,#1559e2,#3f35cb );
   background-size: 50%;
+  @media screen and (max-width: 768px){
+  width:45%;
+  height: 500px;
+  margin: 2%;
+  }
+  
 }
 .add-block-text{
     display: flex;
@@ -317,11 +374,82 @@ background: svg-load("trash.svg", fill="#bf2929") center center no-repeat / cont
     font-weight: 600;
     font-size: 18px;
 }
+//admin-login
+  .admin-login{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: url('~images/content/mountain-bg.png') no-repeat;
+    background-size: 100%;
+    &__h3{
+      justify-content:center;
+      font-weight: 700;
+      font-size:32px;
+      margin: 0 auto;
+
+    }
+    &__overlay{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    background: #fff;
+    left: 0;
+    right: 0;
+    opacity: .5;
+    }
+    &__block{
+      display: flex;
+      flex-flow:column nowrap;
+      justify-content:center;
+      padding: 2%;
+      position: absolute;
+      background: #fff;
+     width: 350px;
+     height: 350px;
+      left: 0;
+      right: 0;
+      margin: auto;
+      top: 0;
+      bottom: 0;
+    }
+    &__form{
+      display: flex;
+      flex-flow:column nowrap;
+      justify-content:center;
+      margin: auto;
+    &__login{
+      display: flex;
+      flex-flow:column nowrap;
+    }
+    &__password{
+      display: flex;
+      flex-flow:column nowrap;
+    }
+    &__btn{
+      margin-top: 1.75rem;
+      font-size: 1.125rem;
+      line-height: 3rem;
+      font-weight: 700;
+      width: 14.875rem;
+      height: 4.3125rem;
+      text-transform: uppercase;
+      color: #fff;
+      background: linear-gradient(-.9turn,#983dec,#5400ec);
+      border-radius: 6px;
+      border-top-left-radius: 45px;
+      border-bottom-right-radius: 45px;
+    }
+    }
+  }
 //header-skill
 .input-form{
   height: 30px;
   border:none;
   border-bottom:solid 1px;
+  font-size: 16px;
+  font-weight: 500;
+  outline: transparent;
 }
 .header-admin{
   background: #43436d;
@@ -345,6 +473,8 @@ background: svg-load("trash.svg", fill="#bf2929") center center no-repeat / cont
         font-size: 18px;
       }
       &__admin-block{
+        margin: 0 10%;
+        display: flex;
         font-size: 18px;
         opacity: .7;
       }
@@ -379,6 +509,7 @@ background: svg-load("trash.svg", fill="#bf2929") center center no-repeat / cont
   width: 100%;
 }
 .admin-about{ 
+  height: 100vh;
     &__nav{
       margin: auto;
     height: 140px;
@@ -388,6 +519,7 @@ background: svg-load("trash.svg", fill="#bf2929") center center no-repeat / cont
     &__h3{
       text-align: center;
       margin: auto 0;
+      padding-right: 3%;
     }
     &__add-group{
       text-align: center;
@@ -411,6 +543,9 @@ background: svg-load("trash.svg", fill="#bf2929") center center no-repeat / cont
     justify-content: space-between;
     flex-flow: row wrap;
     width: 100%;
+    @media screen and (max-width: 768px){
+      flex-flow: column wrap;
+    }
     &__block{
       display: flex;
       justify-content:space-between;
@@ -418,6 +553,10 @@ background: svg-load("trash.svg", fill="#bf2929") center center no-repeat / cont
       width: 45%;
       background: #fff;
       height: 390px;
+    @media screen and (max-width: 768px){
+      width: 95%;
+      margin: 2%;
+    }
     &__skill{
       margin: 20px;
       height: 100%;
@@ -520,21 +659,38 @@ background: svg-load("trash.svg", fill="#bf2929") center center no-repeat / cont
 
 //works
 .admin-works{
+  height: 170vh;
+  @media screen and (max-width: 768px){
+  height: 210vh;
+  }
   &__block-works{
     height: 70%;
-    flex-flow: column wrap;
+    flex-flow: column nowrap;
   }
   &__edit-block{
     padding: 2%;
     background: #fff;
     display: flex;
-    flex-flow: column wrap;
+    flex-flow: column nowrap;
     height: 775px;
     justify-content: space-between;
+    @media screen and (max-width: 768px){
+      height: 1000px;
+    }
     &__section{
       display: flex;
       flex-flow: row nowrap;
       height: 80%;
+    @media screen and (max-width: 768px){
+      flex-flow: column nowrap;
+    }
+      &__img{
+        width: 30%;
+        @media screen and (max-width: 768px){
+          width: 100%;
+          height: 30%;
+        }
+      }
     }
     &__h3{
       margin: auto 0;
@@ -542,9 +698,39 @@ background: svg-load("trash.svg", fill="#bf2929") center center no-repeat / cont
       border-bottom: solid 1px;
     }
     &__img{
-      width: 50%;
-      __block{
-
+    width: 90%;
+    height: 40%;
+    border: 1px dashed #a1a1a1;
+    background: #dee3ed;
+    display: flex;
+    justify-content: center;
+    flex-flow: column nowrap;
+    margin: 0 auto;
+    overflow: hidden;
+    @media screen and (max-width: 768px){
+       height: 100%;
+    }
+      &__block{
+        margin: 0 auto;
+        align-items: center;
+        text-align:center;
+        width: 50%;
+      }
+      input[type=file]{
+        display: none;
+      }
+      &__btn{
+        margin: 0 auto;
+    margin-top: 1.75rem;
+    font-size: 1.125rem;
+    line-height: 3rem;
+    font-weight: 700;
+    width: 11.25rem;
+    height: 3.75rem;
+    border-radius: 50px;
+    text-transform: uppercase;
+    color: #fff;
+    background: linear-gradient(-.9turn,#1558e2,#3f35cb);
       }
     }
     &__info{
@@ -552,6 +738,10 @@ background: svg-load("trash.svg", fill="#bf2929") center center no-repeat / cont
       display:flex;
       flex-flow:column nowrap;
       justify-content:space-between;
+      @media screen and (max-width: 768px){
+        width: 100%;
+        height: 65%;
+      }
       &__name{
         height: 10%;
         width: 100%;
@@ -572,6 +762,12 @@ background: svg-load("trash.svg", fill="#bf2929") center center no-repeat / cont
         display:flex;
         flex-flow:column nowrap;
         justify-content: space-between;
+      @media screen and (max-width: 768px){
+        height: 25%;
+      }
+      &__text{
+        height: 100%;
+      }
       }
       &__add-tags{
         height: 10%;
@@ -590,6 +786,7 @@ background: svg-load("trash.svg", fill="#bf2929") center center no-repeat / cont
         justify-content: flex-start;
       }
       &__tag{
+        position: relative;
         margin: 0 5%;
         display: flex;
         border-radius: 20px;
@@ -598,6 +795,20 @@ background: svg-load("trash.svg", fill="#bf2929") center center no-repeat / cont
         font-size: 0.9375rem;
         font-weight: 600;
         line-height: 3rem;
+        &:after{
+          /* position: absolute; */
+          content: '';
+          width: 18px;
+          background: svg-load("plus.svg", fill="#000") no-repeat center, transparent;
+          content: "";
+          width: 30px;
+          height: 30px;
+          align-items: center;
+          transform: rotate(-45deg);
+          font-weight: 900;
+          align-self: center;
+          cursor: pointer;
+        }
       }
       &__btns{
         display:flex;
@@ -619,9 +830,14 @@ background: svg-load("trash.svg", fill="#bf2929") center center no-repeat / cont
     width: 340px;
     height: 560px;
     background: #fff;
+    @media screen and (max-width:768px) {
+    margin: 2%;
+    width: 45%;
+    height: 500px;
+    }
     &__img-tags{
       height: 40%;
-      background: url('~images/content/my-work1.jpg');
+      background: url('~images/content/my-work1.jpg') no-repeat;
       background-size: contain;
     }
       &__tags{
@@ -646,17 +862,19 @@ background: svg-load("trash.svg", fill="#bf2929") center center no-repeat / cont
         font-weight: 600;
         line-height: 2rem;
       }
-    &__info{
-      height: 40%;
-    }
     &__edit-del{
       height: 20%;
     }
     &__info{
       padding: 5%;
       display: flex;
+      height: 40%;
       flex-flow: column nowrap;
       justify-content: space-between;
+        @media screen and (max-width:768px) {
+        padding: 0;
+        width: 100%;
+      }
     }
     &__title{
       padding: 5% 0;
@@ -673,6 +891,9 @@ background: svg-load("trash.svg", fill="#bf2929") center center no-repeat / cont
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
+  @media screen and (max-width:768px) {
+    height: 10%;
+  }
 }
 .admin-works__btn__edit{
   display: flex;
@@ -708,13 +929,28 @@ background: svg-load("trash.svg", fill="#bf2929") center center no-repeat / cont
 }
 ///reviews
 .admin-reviews{
+  height: 170vh;
+  @media screen and (max-width:768px) {
+    height: 210vh;
+  }
   &__edit-block{
     &__section{
       display: flex;
       flex-flow:row nowrap;
       height: 70%;
+      @media screen and (max-width:768px) {
+        flex-flow: column nowrap;
+      }
       &__add-photo{
         width: 30%;
+      @media screen and (max-width:1200px) {
+        width: 50%;
+      }
+      @media screen and (max-width:768px) {
+        width: 50%;
+        height: 30%;
+        margin: auto;
+      }
       }
       &__add-photo{
         display: flex;
@@ -724,10 +960,17 @@ background: svg-load("trash.svg", fill="#bf2929") center center no-repeat / cont
       &__photo{
         display: flex;
         justify-content: center;
-        height: 75%;
+        margin: 0 auto;
+        height: 350px;
+        width: 350px;
         border-radius: 50%;
         background: svg-load("man-user.svg", fill="#fff") no-repeat center, #dee4ed;
         background-size: 50%;
+        @media screen and (max-width:768px) {
+        margin: auto;
+        height: 190px;
+        width: 190px;
+      }
       }
       &__photo-link{
         margin: 0 auto;
@@ -737,11 +980,18 @@ background: svg-load("trash.svg", fill="#bf2929") center center no-repeat / cont
       &__info{
         padding-left: 5%;
         width: 50%;
+        @media screen and (max-width:768px) {
+        padding: 5% 0;
+        width: 100%;
+      }
         &__head{
           height: 30%;
           display:flex;
           justify-content: space-between;
           flex-flow:row nowrap;
+        @media screen and (max-width:768px) {
+          height: 15%;
+      }
           &__input{
             width: 45%;
             display:flex;
@@ -768,7 +1018,6 @@ background: svg-load("trash.svg", fill="#bf2929") center center no-repeat / cont
 }
 .admin-reviews{
   &__blocks{
-    
   }
   &__block{
     &__review{
@@ -812,5 +1061,44 @@ background: svg-load("trash.svg", fill="#bf2929") center center no-repeat / cont
     }
   }
 }
+//valid-messege
+.valid-messege{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right:0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  z-index: 10;
+  display: none;
+  &__great{
+    font-size: 20px;
+    background: green;
+    font-weight: 600;
+    color: #fff;
+    padding: 20px;
+    opacity: .7;
+    z-index: 10;
 
+  }
+  &__server-load{
+    font-size: 20px;
+    background: orangered;
+    font-weight: 600;
+    color: #fff;
+    padding: 20px;
+    opacity: .7;
+    z-index: 10;
+  }
+  &__bad{
+    font-size: 20px;
+    background: red;
+    font-weight: 600;
+    color: #fff;
+    padding: 20px;
+    opacity: .7;
+    z-index: 10;
+  }
+}
 </style>

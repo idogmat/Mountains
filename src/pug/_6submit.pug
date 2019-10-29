@@ -1,22 +1,41 @@
 section.submit-me(id='submit-me')
   h2.submit-me__h2 Связаться со мной
-  form.order-form(action="submit" id="myForm")
+  form.order-form(id="myForm" @submit.prevent="submitForm")
     .form-block
       .form-block__name-email
         .form-block__label
           span.form-block__span Введите ваше имя
-          label.form-label(for="name")
+          label.form-label.form-label-name(:class="{error: !nameValid}") 
             +icon('user','svg-form svg-user')
-            input.form-input-name.form-input(type="name" name="name" placeholder="Евгений Родин" onFocus="this.placeholder='';" required)
+            input.form-input-name.form-input(
+              type="text"
+              name="name"
+              @input="validateName"
+              placeholder="Евгений Родин"
+              onFocus="this.placeholder=''"
+              )
+            .error__tooltip {{nameError}}
         .form-block__label
           span.form-block__span Введите ваш email
-          label.form-label(for="email")
+          label.form-label.form-label-email(:class="{error: !emailValid}")
             +icon('envelope','svg-form svg-envelope')
-            input.form-input-email.form-input(type="email" name="email" class="form-input" placeholder="loftschool@study.com" onFocus="this.placeholder='';" required)
+            input.form-input-email.form-input(
+              type="email"
+              name="email"
+              @input="validateEmail"
+              placeholder="loftschool@study.com"
+              onFocus="this.placeholder=''"
+              )
+            .error__tooltip {{emailError}}
       .form-message
         .form-block__label
           span.form-block__span Сообщение к письму
-          .form-label
+          label.form-label.form-label-message(:class="{error: !messageValid}")
             +icon('message','svg-form svg-message')
-            textarea.form-input.form-input-message(type="text" name="comment" placeholder="Требуется ваша помощь в создании сайта.\nИнтересуют сроки и цена вопроса" onFocus="this.placeholder='';" required)
-    button.form-submit(id="sendButton") Отправить
+            textarea.form-input-message.form-input(type="text" name="comment" @input="validateMessege" placeholder="Требуется ваша помощь в создании сайта.\nИнтересуют сроки и цена вопроса" onFocus="this.placeholder=''")
+            .error__tooltip {{messageError}}
+    button.form-submit(@click.prevent="submitForm") Отправить
+.overlay-submit.disabled(:class="{disabled: overlayHidden}" @click="hideOverlay")
+  .overlay-submit__content
+    .overlay-submit__message {{resultMessage}}
+    button.overlay-submit__close(@click="hideOverlay") Закрыть

@@ -1,70 +1,60 @@
-// const myForm = document.querySelector('#myForm'),
-//     sendButton = document.querySelector('#sendButton'),
-//     modulWindow = document.querySelector('.good-order'),
-//     orderBtn = document.querySelector('.good-order-btn');
+const myForm = document.querySelector('#myForm'),
+    sendButton = document.querySelector('#sendButton'),
+    modulWindow = document.querySelector('.section-good');
 
-// sendButton.addEventListener('click', function (e) {
-//     e.preventDefault();
-//     if (validateForm(myForm)) {
 
-//         let formData = new FormData(myForm);
-//         formData.append('to', 'test@test.test');
+sendButton.addEventListener('click', function (e) {
+    e.preventDefault();
+    if (validateForm(myForm)) {
 
-//         const xhr = new XMLHttpRequest();
-//         xhr.responseType = 'json';
-//         xhr.open('POST', 'https://webdev-api.loftschool.com/sendmail');
-//         xhr.send(formData);
-//         xhr.addEventListener('load', () => {
+        
+        let formData = new FormData(myForm);
 
-//             console.log(xhr.response);
-//         });
+        const xhr = new XMLHttpRequest();
+        xhr.open('POST', 'https://webdev-api.loftschool.com/sendmail');
+        xhr.send(formData);
+        xhr.addEventListener('load', () => {
+            console.log(formData);
+        });
+        xhr.addEventListener('load', function () {
 
-//         xhr.addEventListener('load', function () {
+            if (xhr.status === 200) {
 
-//             modulWindow.style.display = 'flex';
-//             if (xhr.status === 200) {
-
-//                 document.querySelector('.good-order__active span').innerHTML = xhr.response.message;
-
-//             } else {
-//                 document.querySelector('.good-order__active span').innerHTML = ('Erorr - ' + xhr.status);
-//             }
-
-//             orderBtn.addEventListener('click', function (e) {
-//                 e.preventDefault();
-//                 modulWindow.style.display = 'none';
-//             })
-//         })
-//     }
-// })
+                console.log('good');
+            } else {
+                console.log('bad');
+            }
+        })
+    }
+})
 
 
 
-// function validateForm(form) {
-//     let valid = true
+function validateForm(form) {
+    let valid = true
 
-//     if (!validateField(form.elements.name)) {
-//         valid = false
-//     }
-//     if (!validateField(form.elements.phone)) {
-//         valid = false
-//     }
-//     if (!validateField(form.elements.comment)) {
-//         valid = false
-//     }
-//     return valid
-// };
+    if (!validateField(form.elements.name)) {
+        valid = false
+        
+    }
+    if (!validateField(form.elements.email)) {
+        valid = false
+    }
+    if (!validateField(form.elements.comment)) {
+        valid = false
+    }
+    return valid
+};
 
-// function validateField(field) {
-//     if (!field.checkValidity()) {
-//         // console.log(field);
-//         field.setAttribute('placeholder', field.validationMessage);
-//         field.style.border = '1px solid #0f5a47';
+function validateField(field) {
+    if (!field.checkValidity()) {
+        console.log(field);
+        field.setAttribute('placeholder', field.validationMessage);
 
-//         return false;
-//     } else {
-//         field.elements = '';
-//         field = field.style.border = 'none';
-//         return true;
-//     }
-// }
+
+        return false;
+    } else {
+        field.elements = '';
+        return true;
+    }
+};
