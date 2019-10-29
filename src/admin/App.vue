@@ -122,7 +122,7 @@ html(lang="en")
               h3.admin-works__edit-block__h3 Редактирование работы
               form.admin-works__edit-block__section
                 .admin-works__edit-block__section__img
-                  label(for="image").admin-works__edit-block__img
+                  label.admin-works__edit-block__img
                     .admin-works__edit-block__img__block Перетащите либо загрузите изображение
                     input(type="file" name="image").admin-works__edit-block__img__input
                     button(type="button").admin-works__edit-block__img__btn Загрузить
@@ -177,7 +177,8 @@ html(lang="en")
               form.admin-reviews__edit-block__section
                 .admin-reviews__edit-block__section__add-photo
                   .admin-reviews__edit-block__section__photo
-                  a.admin-reviews__edit-block__section__photo-link Добавить фото
+                  label.admin-reviews__edit-block__section__photo-btn Добавить фото
+                    input(type="file" name="image").admin-reviews__edit-block__section__input
                 .admin-reviews__edit-block__section__info
                   .admin-reviews__edit-block__section__info__head
                     .admin-reviews__edit-block__section__info__head__input
@@ -706,7 +707,6 @@ background: svg-load("trash.svg", fill="#bf2929") center center no-repeat / cont
     justify-content: center;
     flex-flow: column nowrap;
     margin: 0 auto;
-    overflow: hidden;
     @media screen and (max-width: 768px){
        height: 100%;
     }
@@ -716,7 +716,7 @@ background: svg-load("trash.svg", fill="#bf2929") center center no-repeat / cont
         text-align:center;
         width: 50%;
       }
-      input[type=file]{
+      &__input{
         display: none;
       }
       &__btn{
@@ -757,7 +757,7 @@ background: svg-load("trash.svg", fill="#bf2929") center center no-repeat / cont
         justify-content: space-between;
       }
       &__description{
-        height: 10%;
+        height: 25%;
         width: 100%;
         display:flex;
         flex-flow:column nowrap;
@@ -972,10 +972,14 @@ background: svg-load("trash.svg", fill="#bf2929") center center no-repeat / cont
         width: 190px;
       }
       }
-      &__photo-link{
+      &__photo-btn{
         margin: 0 auto;
         color: #1558e2;
         font-weight: 700;
+        cursor: pointer;
+      }
+      &__input{
+        display: none;
       }
       &__info{
         padding-left: 5%;
