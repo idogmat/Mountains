@@ -88,6 +88,7 @@
     @include tablets(){
       margin-left: 1.5rem;
     }
+
     &:hover{
       border: 0.0625rem solid #7a00ea;
       .arrow-right,.arrow-left{
@@ -96,6 +97,14 @@
     }
     &__right{
       margin-left: 30px;
+    }
+    &:disabled{
+      &:hover{
+        border: 0.0625rem solid #414c63;
+        .arrow-right,.arrow-left{
+          fill: #414c63;
+        }
+      }
     }
   }
   ///

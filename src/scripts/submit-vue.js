@@ -1,6 +1,6 @@
 import Vue from 'vue';
 new Vue ({
-    el:"#myForm",
+    el:"#submit-me",
     data:{
         name:'',
         email:'',
@@ -68,7 +68,7 @@ new Vue ({
                     body: JSON.stringify(userData)
                 }).then((response) => {
                     console.log(response);
-                    this.resultMessege = "Сообщение отправлено!";
+                    this.resultMessage = "Сообщение отправлено!";
                     this.overlayHidden = false;
                     setTimeout(this.hideOverlay, 5000);
                 });
@@ -78,5 +78,5 @@ new Vue ({
         hideOverlay() {
             this.overlayHidden = true;
         }
-    },
+    }
 });

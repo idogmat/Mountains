@@ -197,7 +197,6 @@
   position: fixed;
   width: 100%;
   height: 100%;
-  opacity: .8;
   z-index: 100;
   top:0;
   left: 0;
@@ -212,8 +211,21 @@
   align-self: center;
   align-items: center;
   justify-content: center;
-  opacity: 1;
+  opacity: .8;
   background: #fff;  
+}
+&__block{
+  z-index: 10;
+  width: 30%;
+  height: 30%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  background: transparent;
+  align-self: center;
+}
+&__message{
+  align-self: center;
 }
 &__close{
   margin-top: 60px;
@@ -228,6 +240,7 @@
   border-radius: 6px;
   border-top-left-radius: 45px;
   border-bottom-right-radius: 45px;
+  align-self: center;
 }
 }
 .disabled{

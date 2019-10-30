@@ -35,7 +35,8 @@ section.submit-me(id='submit-me')
             textarea.form-input-message.form-input(type="text" name="comment" @input="validateMessege" placeholder="Требуется ваша помощь в создании сайта.\nИнтересуют сроки и цена вопроса" onFocus="this.placeholder=''")
             .error__tooltip {{messageError}}
     button.form-submit(@click.prevent="submitForm") Отправить
-.overlay-submit.disabled(:class="{disabled: overlayHidden}" @click="hideOverlay")
-  .overlay-submit__content
-    .overlay-submit__message {{resultMessage}}
-    button.overlay-submit__close(@click="hideOverlay") Закрыть
+  .overlay-submit(:class="{disabled: overlayHidden}" @click="hideOverlay")
+    .overlay-submit__content
+    .overlay-submit__block
+      h2.overlay-submit__message {{resultMessage}}
+      button.overlay-submit__close(@click="hideOverlay") Закрыть
