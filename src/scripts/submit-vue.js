@@ -12,7 +12,7 @@ new Vue ({
         emailError:'',
         messageError:'',
         overlayHidden:true,
-        resultMessege:''
+        resultMessage:''
     },
     methods:{
         validateName() {
@@ -61,17 +61,17 @@ new Vue ({
                     name: this.name,
                     email: this.email,
                     message: this.message
-                };
-                fetch('src/data/success.txt',{
+                }
+                fetch('src/data/success.txt', {
                     method: 'POST',
                     headers: {'Content-Type': 'application/json'},
                     body: JSON.stringify(userData)
                 }).then((response) => {
-                    console.log(response);
+                    console.log(userData);
                     this.resultMessage = "Сообщение отправлено!";
                     this.overlayHidden = false;
                     setTimeout(this.hideOverlay, 5000);
-                });
+                })
 
             }
         },
