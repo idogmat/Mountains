@@ -2,7 +2,7 @@ const fs = require("fs");
 
 module.exports = {
   syntax: "postcss-scss",
-  parser: 'postcss-scss',
+  parser: "postcss-scss",
   plugins: [
     require("postcss-easy-import")({
       extensions: ".pcss"
@@ -10,6 +10,7 @@ module.exports = {
     require("autoprefixer")({
       cascade: false
     }),
+    require("postcss-each"),
     require("postcss-advanced-variables")({
       variables: JSON.parse(
         fs.readFileSync("./src/styles/variables.json", "utf-8")
