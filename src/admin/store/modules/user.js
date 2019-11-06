@@ -26,7 +26,7 @@ export default {
   actions: {
     async loginUser({ commit }, user) {
       try {
-        const response = await this.$axios.post("/login",user);
+        const response = await this.$axios.post("/login", user);
         return response;
       } catch (error) {
         

@@ -1,5 +1,8 @@
 <template lang="pug">
   .skill-container
+    h2 {{category}}
+    hr 
+    h2 {{skill}}
     table
       skills-item(
         v-for="skill in category.skills"
@@ -12,11 +15,11 @@
       :class={blocked: formBlocked}
     ).add-skill-wrapper
       input(type="text" placeholder="Имя" v-model="skill.title")
-      input(type="number" min="0" max="100" placeholder="Проценты" v-model="skill.percent")
-      button.add-new(type="submit") 
+      input(type="text" placeholder="Проценты" v-model="skill.percent")
+      button(type="submit") Добавить
 </template>
 <script>
-import { mapActions } from "vuex";
+import { mapActions, mapState } from "vuex";
 export default {
   components: {
     skillsItem: () => import("./skills-item")
@@ -39,17 +42,33 @@ export default {
     };
   },
   methods: {
+    ...mapActions("categories", ["removeCategory"]),
     ...mapActions("skills", ["addSkill"]),
+    async removeCategory(){
+      try {
+         await this.removeCategory(category);
+      } catch (error) {
+        
+      }
+    },
     async addNewSkill() {
       this.formBlocked = true;
       try {
         await this.addSkill(this.skill);
         this.skill.title = "";
         this.skill.percent = "";
+        
       } catch (error) {
         // errors
       } finally {
         this.formBlocked = false;
+      }
+    },
+      async removeCategory() {
+      try {
+        await this.removeCategory(category);
+      } catch (error) {
+        alert(error.message);
       }
     }
   }

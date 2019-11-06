@@ -3,16 +3,18 @@
     td {{skill.title}}
     td {{skill.percent}}
     td 
-      button.btn-accept(type="button" @click="removeExistedSkill") удалить
-      button.btn-decline(type="button" @click="editMode = true") изменить
+      button(type="button" @click="removeExistedSkill") удалить
+      button(type="button" @click="editMode = true") изменить
+  
   tr(v-else)
     td 
       input(type="text" v-model="editedSkill.title")
     td 
-      input(type="number" v-model="editedSkill.percent")
+      input(type="text" v-model="editedSkill.percent")
     td 
-      button.btn-edit(type="button" @click="editExistedSkill") сохранить
-      button.btn-trash(type="button" @click="editMode = false") отменить
+      button(type="button" @click="editExistedSkill") сохранить
+      button(type="button" @click="editMode = false") отменить
+
 
 </template>
 <script>
@@ -32,7 +34,7 @@ export default {
     }
   },
   methods: {
-    ...mapActions("skills", ["removeSkill", "editSkill"]),
+    ...mapActions("skills", ["removeSkill", "editSkill", "getSkills"]),
     async editExistedSkill() {
       try {
         await this.editSkill(this.editedSkill); 

@@ -5,7 +5,6 @@ const findRequiredCategory = (category, skill, cb) => {
 
   return category;
 };
-
 export default {
   namespaced: true,
   state: {
@@ -18,44 +17,12 @@ export default {
     ADD_CATEGORY(state, category) {
       state.categories.unshift(category);
     },
-    ADD_SKILL(state, newSkill) {
-      state.categories = state.categories.map(category => {
-        if (category.id === newSkill.category) {
-          category.skills.push(newSkill);
-        }
-
-        return category;
-      });
-    },
-    REMOVE_SKILL(state, deletedSkill) {
-      const removeSkill = category => {
-        category.skills = category.skills.filter(
-          skill => skill.id !== deletedSkill.id
+    REMOVE_CATEGORY: (state, removeCategoryId) => {
+        state.categories = state.categories.filter(
+          category => category.id !== removeCategoryId
         );
-      };
-
-      const findRequiredCategory = category => {
-        if (category.id === deletedSkill.category) {
-          removeSkill(category);
-        }
-
-        return category;
-      };
-
-      state.categories = state.categories.map(findRequiredCategory);
+      }
     },
-    EDIT_SKILL(state, editedSkill) {
-      const editSkill = category => {
-        category.skills = category.skills.map(skill =>
-          skill.id === editedSkill.id ? editedSkill : skill
-        );
-      };
-
-      state.categories = state.categories.map(category =>
-        findRequiredCategory(category, editedSkill, editSkill(category))
-      );
-    }
-  },
   actions: {
     async addCategory({ commit }, title) {
       try {
@@ -67,11 +34,19 @@ export default {
         );
       }
     },
-    async fetchCategories({ commit }) {
+    async getCategory({ commit }) {
       try {
-        const { data } = await this.$axios.get("/categories/1");
+        const { data } = await this.$axios.get("/categories");
         commit("SET_CATEGORIES", data);
       } catch (error) {}
+    },
+    async removeCategory({ commit }, skillId){
+      try {
+        const { data } = await this.$axios.delete("/categories");
+        commit("REMOVE_CATEGORY", data);
+      } catch (error) {
+        
+      }
     }
   }
 };

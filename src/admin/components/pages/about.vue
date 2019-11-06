@@ -1,23 +1,21 @@
 <template lang="pug">
-  .container
-    .about-page__title
-      h1.page-title Блок «Обо мне»
-      button.about-page__add-new(
-      ) Добавить группу
-    .admin-about__skills
-      .admin-about__skills__block
-        .admin-about__skills__block__skill
-          form(@submit.prevent="addNewCategory").admin-about__skills__block__skill__name 
-            input.input-form.input-name(v-model="title" type="text" placeholder="Название новой группы" required) 
-            .admin-about__skills__block__skill__btns
-              button(type="submit").btn-accept
-              button(type="reset").btn-decline
-          .about-page__content
-            ul.skill-list
-              li.skill-list__item(v-for="category in categories" :key="category.id")
-                skills-group(
-                  :category="category"
-                )
+  .about-page-container
+    .container
+      .about-page__title
+        h1.page-title Обо мне
+        button.about-page__add-new(
+        ) Добавить группу
+      form(@submit.prevent="addNewCategory")
+        input(type="text" v-model="title" placeholder="Имя категории") 
+        input(type="submit" value="Добавить")
+    .about-page__content
+      .container.container--mobile-wide
+        ul.skill-list
+          li.skill-list__item(v-for="category in categories" :key="category.id")
+            skills-group(
+              :category="category"
+            )
+            button(type="button" @click.prevent="removeCategory") del
 
 </template>
 
@@ -31,7 +29,7 @@ export default {
     title: ""
   }),
   created() {
-    this.fetchCategories();
+    this.getCategory();
   },
   computed: {
     ...mapState("categories", {
@@ -39,7 +37,7 @@ export default {
     })
   },
   methods: {
-    ...mapActions("categories", ["addCategory", "fetchCategories"]),
+    ...mapActions("categories", ["addCategory", "getCategory", "removeCategory"]),
     async addNewCategory() {
       try {
         await this.addCategory(this.title);
@@ -48,7 +46,7 @@ export default {
       }
     }
   }
-};
+}
 </script>
 
 <style lang="postcss" scoped>
