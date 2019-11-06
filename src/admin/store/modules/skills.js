@@ -29,7 +29,7 @@ export default {
           editedSkill
         );
 
-        commit("categories/EDIT_SKILL", data.skill, { root: true });
+        commit("EDIT_SKILL", data.skill, { root: true });
       } catch (error) {}
     },
     

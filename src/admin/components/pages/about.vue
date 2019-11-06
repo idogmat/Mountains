@@ -14,6 +14,7 @@
           li.skill-list__item(v-for="category in categories" :key="category.id")
             skills-group(
               :category="category"
+              :category.id="filterCategorySkills(category.id)"
             )
             button(type="button" @click.prevent="removeCategory") del
 
@@ -32,12 +33,14 @@ export default {
     this.getCategory();
   },
   computed: {
-    ...mapState("categories", {
-      categories: state => state.categories
-    })
+    ...mapState("categories", {categories: state => state.categories}),
+    ...mapState("skills", {skills: state => state.skills})
   },
   methods: {
     ...mapActions("categories", ["addCategory", "getCategory", "removeCategory"]),
+    filterCategorySkills(catid) {
+      return this.skills.filter(skill => skill.category === catid);
+    },
     async addNewCategory() {
       try {
         await this.addCategory(this.title);

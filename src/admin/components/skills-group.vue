@@ -5,7 +5,7 @@
     h2 {{skill}}
     table
       skills-item(
-        v-for="skill in category.skills"
+        v-for="skill in skills"
         :key="skill.id"
         :skill="skill"
       )
@@ -24,12 +24,14 @@ export default {
   components: {
     skillsItem: () => import("./skills-item")
   },
+    computed: {
+    ...mapState("categories", {categories: state => state.categories}),
+    ...mapState("skills", {skills: state => state.skills})
+  },
   props: {
-    category: {
-      type: Object,
-      default: () => ({}),
-      required: true
-    }
+    category: Object,
+    skills: Array
+
   },
   data() {
     return {
