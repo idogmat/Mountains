@@ -74,24 +74,20 @@ export default {
   transform: translateX(-50%);
   z-index: 100;
 }
-
 .input {
   display: block;
   position: relative;
-
   &.no-side-paddings {
     .input__elem {
       padding-right: 0;
       padding-left: 0;
     }
   }
-
   &_labeled {
     .input__elem {
       padding: 15px 0 18px;
     }
   }
-
   &_iconed {
     .input__title {
       margin-left: 45px;
@@ -106,7 +102,6 @@ export default {
       padding-bottom: 17px;
     }
   }
-
   &_icon {
     @each $icon in (user, key) {
       &-$(icon) {
@@ -126,27 +121,22 @@ export default {
     }
   }
 }
-
 .error {
   .field__elem {
     /* border-color: $errors-color; */
   }
-
   .input__error-tooltip {
     display: block;
   }
 }
-
 .textarea {
   position: relative;
 }
-
 .input__title {
   color: rgba(65, 76, 99, 0.5);
   font-weight: 600;
   opacity: 0.5;
 }
-
 .textarea__elem {
   height: 150px;
   padding: 20px;
@@ -156,16 +146,13 @@ export default {
   margin-top: 10px;
   width: 100%;
 }
-
 .input__elem {
   width: 100%;
   padding: 10px 8%;
   border: none;
   border-bottom: 1px solid #1f232d;
-
   &::placeholder {
     color: rgba(55, 62, 66, 0.25);
   }
 }
 </style>
-

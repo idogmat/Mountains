@@ -67,7 +67,6 @@ export default {
   align-items: center;
   justify-content: center;
   background: url("~images/content/mountain-bg.png") center center / cover no-repeat;
-
   &:before {
     content: "";
     position: absolute;
@@ -79,33 +78,27 @@ export default {
     background: $text-color;
   }
 }
-
 .login__form-title {
   font-size: 36px;
   text-align: center;
   font-weight: 600;
 }
-
 .login__content {
   position: relative;
-
   @include phones {
     height: 100%;
     width: 100%;
   }
 }
-
 .login__row {
   margin-bottom: 35px;
 }
-
 .login__btn {
   display: flex;
   width: 100%;
   padding: 0 8%;
   justify-content: center;
 }
-
 .login__send-data {
   width: 100%;
   padding: 30px;
@@ -115,18 +108,15 @@ export default {
   text-transform: uppercase;
   font-weight: bold;
   font-size: 18px;
-
   &[disabled] {
     opacity: 0.5;
     filter: grayscale(100%);
   }
 }
-
 .login__form {
   width: 563px;
   padding: 50px 77px 60px;
   background: #fff;
-
   @include phones {
     width: 100%;
     padding-right: 7%;
@@ -138,5 +128,3 @@ export default {
   }
 }
 </style>
-
-

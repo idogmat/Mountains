@@ -34,7 +34,7 @@ export default {
     }
   },
   methods: {
-    ...mapActions("skills", ["removeSkill", "editSkill", "getSkills"]),
+    ...mapActions("skills", ["removeSkill", "editSkill"]),
     async editExistedSkill() {
       try {
         await this.editSkill(this.editedSkill); 
@@ -56,35 +56,35 @@ export default {
 </script>
 <style lang="postcss">
 .btn-accept{
-width: 15px;
-height: 12px;
-background: svg-load("tick.svg", fill="#a0a5b1") center center no-repeat / contain;
-&:hover{
-  background: svg-load("tick.svg", fill="#00d70a") center center no-repeat / contain;
-}
+  width: 15px;
+  height: 12px;
+  background: svg-load("tick.svg", fill="#a0a5b1") center center no-repeat / contain;
+  &:hover{
+    background: svg-load("tick.svg", fill="#00d70a") center center no-repeat / contain;
+  }
 }
 .btn-decline{
-width: 15px;
-height: 12px;
-background: svg-load("remove.svg", fill="#a0a5b1") center center no-repeat / contain;
-&:hover{
-  background: svg-load("remove.svg", fill="#bf2929") center center no-repeat / contain;
-}
+  width: 15px;
+  height: 12px;
+  background: svg-load("remove.svg", fill="#a0a5b1") center center no-repeat / contain;
+  &:hover{
+    background: svg-load("remove.svg", fill="#bf2929") center center no-repeat / contain;
+  }
 }
 .btn-edit{
-width: 16px;
-height: 15px;
-background: svg-load("pencil.svg", fill="#a0a5b1") center center no-repeat / contain;
-&:hover{
-  background: svg-load("pencil.svg", fill="#00d70a") center center no-repeat / contain;
-}
+  width: 16px;
+  height: 15px;
+  background: svg-load("pencil.svg", fill="#a0a5b1") center center no-repeat / contain;
+  &:hover{
+    background: svg-load("pencil.svg", fill="#00d70a") center center no-repeat / contain;
+  }
 }
 .btn-trash{
-width: 16px;
-height: 15px;
-background: svg-load("trash.svg", fill="#a0a5b1") center center no-repeat / contain;
-&:hover{
-background: svg-load("trash.svg", fill="#bf2929") center center no-repeat / contain;
-} 
+  width: 16px;
+  height: 15px;
+  background: svg-load("trash.svg", fill="#a0a5b1") center center no-repeat / contain;
+  &:hover{
+  background: svg-load("trash.svg", fill="#bf2929") center center no-repeat / contain;
+  } 
 }
 </style>

@@ -14,9 +14,9 @@
           li.skill-list__item(v-for="category in categories" :key="category.id")
             skills-group(
               :category="category"
-              :category.id="filterCategorySkills(category.id)"
+              @getRemoveCaregory="getRemoveCaregory"
+              @editExistetedCategoty="editExistetedCategoty"
             )
-            button(type="button" @click.prevent="removeCategory") del
 
 </template>
 
@@ -30,32 +30,46 @@ export default {
     title: ""
   }),
   created() {
-    this.getCategory();
+    this.fetchCategories();
   },
   computed: {
-    ...mapState("categories", {categories: state => state.categories}),
-    ...mapState("skills", {skills: state => state.skills})
+    ...mapState("categories", {
+      categories: state => state.categories
+    })
   },
   methods: {
-    ...mapActions("categories", ["addCategory", "getCategory", "removeCategory"]),
-    filterCategorySkills(catid) {
-      return this.skills.filter(skill => skill.category === catid);
-    },
+    ...mapActions("categories", ["addCategory", "fetchCategories", "removeCategory","editCategory"]),
     async addNewCategory() {
       try {
         await this.addCategory(this.title);
       } catch (error) {
         alert(error.message);
       }
+    },
+    async getRemoveCaregory(categoryId) {
+      try {
+        await this.removeCategory(categoryId);
+        await this.fetchCategories();
+      } catch (error) {}
+    },
+    async editExistetedCategoty(category) {
+      try {
+        console.log(category);
+        // await this.editCategory(category.id)
+        // await this.fetchCategories();
+      } catch (error) {
+        
+      }
+
     }
   }
-}
+};
 </script>
 
 <style lang="postcss" scoped>
 @import "../../../styles/mixins.pcss";
 .skill-list{
-  height: 100%;
+  height: 25%;
   &__item{
     height: 100%;
   }
@@ -70,7 +84,6 @@ export default {
   display: flex;
   align-items: center;
   margin-bottom: 60px;
-
   .page-title {
     margin-bottom: 0;
     margin-right: 60px;
@@ -78,13 +91,11 @@ export default {
       margin-bottom: 28px;
     }
   }
-
   @include phones {
     flex-direction: column;
     align-items: flex-start;
   }
 }
-
 .about-page__add-new {
   color: $links-color;
   font-weight: bold;
@@ -92,7 +103,7 @@ export default {
   align-items: center;
   padding: 0;
   border: none;
-
+  background: transparent;
   &:before {
     content: "+";
     display: block;
@@ -107,7 +118,6 @@ export default {
     flex-basis: 20px;
   }
 }
-
 .skill-list {
   display: flex;
   flex-wrap: wrap;
@@ -115,18 +125,14 @@ export default {
     margin-left: 0;
   }
 }
-
 .skill-list__item {
   width: 100%;
-
   margin-bottom: 30px;
-
   &.loading {
     opacity: 0.5;
     pointer-events: none;
     filter: grayscale(100%);
   }
-
   @include phones {
     width: 100%;
     margin-left: 0;
@@ -195,7 +201,6 @@ export default {
         align-self: center;
         color:#fff;
       }
-
     }
     &__exit{
       color: #fff;
@@ -384,7 +389,6 @@ export default {
           font-weight: 500;
           width: 70%;
           border:none;
-
           background:transparent;
           /* border-bottom: solid 1px; */
         }
@@ -392,7 +396,6 @@ export default {
           width: 11%;
           border:none;
           background:transparent;
-
         }
           input::-webkit-outer-spin-button,
           input::-webkit-inner-spin-button {
@@ -417,8 +420,4 @@ export default {
     }
   }
 }
-
 </style>
-
-
-

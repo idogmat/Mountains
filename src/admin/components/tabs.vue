@@ -28,33 +28,26 @@ export default {
 
 <style lang="postcss" scoped>
 @import "../../styles/mixins.pcss";
-
 .tabs-container {
   background: #fff;
 }
-
 .tabs {
   display: flex;
   height: 77px;
-
   @include phones {
     height: 87px;
   }
 }
-
 .tabs__item {
   height: 100%;
   margin-right: 30px;
-
   @include phones {
     margin-right: 3px;
   }
-
   &:last-child {
     margin-right: 0;
   }
 }
-
 .tabs__link {
   vertical-align: middle;
   white-space: nowrap;
@@ -66,15 +59,12 @@ export default {
   justify-content: center;
   border-bottom: 3px solid transparent;
   text-decoration: none;
-
   @include phones {
     width: 100px;
   }
-
   &:before {
     content: attr(data-text);
   }
-
   &:hover,
   &.active {
     color: #383bcf;

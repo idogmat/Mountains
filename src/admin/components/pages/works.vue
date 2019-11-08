@@ -187,7 +187,6 @@
       &__btns{
         display:flex;
         justify-content: flex-end;
-
       }
     }
   }
@@ -258,9 +257,7 @@
     &__link{
       padding: 5% 0;
     }
-
   }
-
 }
 .admin-works__btn__edit-del{
   height: 15%;
@@ -309,7 +306,6 @@ background: svg-load("remove.svg", fill="#bf2929") center center no-repeat / con
     width: 30%;
     align-self: center;
   background: svg-load("remove.svg",fill="#a0a5b1") center center no-repeat / contain;
-
     &__text{
     font-weight: 600;
     font-size:16px;

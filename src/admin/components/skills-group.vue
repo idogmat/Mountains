@@ -1,11 +1,22 @@
 <template lang="pug">
   .skill-container
-    h2 {{category}}
-    hr 
-    h2 {{skill}}
-    table
+    .title-category(v-if="titleBlocked === true")
+      td.skill-title(
+        :class={titleblocked: titleBlocked}
+      ) {{category.category}}
+      button(type="button" @click="getRemoveCaregory") del {{category.id}}
+      button(type="button" @click="titleBlocked = false") edit {{category.id}}
+    .title-category(v-else)
+      input.skill-title(type="text" 
+      placeholder="Имя" 
+      v-model="editedCategoty.category"
+      )
+      button(type="button" @click="editExistetedCategoty") seve {{category.id}}
+      button(type="button" @click="titleBlocked = true") decline {{category.id}}
+    hr
+    table 
       skills-item(
-        v-for="skill in skills"
+        v-for="skill in category.skills"
         :key="skill.id"
         :skill="skill"
       )
@@ -19,22 +30,22 @@
       button(type="submit") Добавить
 </template>
 <script>
-import { mapActions, mapState } from "vuex";
+import { mapActions } from "vuex";
 export default {
   components: {
     skillsItem: () => import("./skills-item")
   },
-    computed: {
-    ...mapState("categories", {categories: state => state.categories}),
-    ...mapState("skills", {skills: state => state.skills})
-  },
   props: {
-    category: Object,
-    skills: Array
-
+    category: {
+      type: Object,
+      default: () => ({}),
+      required: true
+    }
   },
   data() {
     return {
+      titleBlocked: true,
+      editedCategoty: {...this.category},
       formBlocked: false,
       skill: {
         title: "",
@@ -44,34 +55,29 @@ export default {
     };
   },
   methods: {
-    ...mapActions("categories", ["removeCategory"]),
     ...mapActions("skills", ["addSkill"]),
-    async removeCategory(){
-      try {
-         await this.removeCategory(category);
-      } catch (error) {
-        
-      }
-    },
+    ...mapActions("categories", ["fetchCategories"]),
     async addNewSkill() {
       this.formBlocked = true;
       try {
         await this.addSkill(this.skill);
         this.skill.title = "";
         this.skill.percent = "";
-        
+        await this.fetchCategories();
       } catch (error) {
         // errors
       } finally {
         this.formBlocked = false;
       }
     },
-      async removeCategory() {
-      try {
-        await this.removeCategory(category);
-      } catch (error) {
-        alert(error.message);
-      }
+    async getRemoveCaregory(categoryId) {
+      this.$emit('getRemoveCaregory', this.category.id);
+    },
+    async editExistetedCategoty(categoryId) {
+      this.$emit('editExistetedCategoty', this.category.id);
+    },
+    async getEditCaregory(category) {
+      this.$emit('getEditCaregory', this.editedCategoty.category);
     }
   }
 };
@@ -80,6 +86,20 @@ export default {
 <style lang="postcss" scoped>
 .skill-container{
   height: 100%;
+}
+.skill-title{
+  border: 0;
+  outline: 1px solid transparent;
+  cursor: default;
+}
+.skill-title.titleblocked {
+  border:none;
+  border: 0;
+  cursor: auto;
+  outline: 1px solid #000;
+  filter: grayscale(100%);
+  pointer-events: none;
+  user-select: none;
 }
 .add-skill-wrapper{
   display: flex;
@@ -153,5 +173,3 @@ background: svg-load("trash.svg", fill="#bf2929") center center no-repeat / cont
   }
 }
 </style>
-
-
