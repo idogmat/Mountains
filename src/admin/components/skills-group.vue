@@ -74,10 +74,7 @@ export default {
       this.$emit('getRemoveCaregory', this.category.id);
     },
     async editExistetedCategoty(categoryId) {
-      this.$emit('editExistetedCategoty', this.category.id);
-    },
-    async getEditCaregory(category) {
-      this.$emit('getEditCaregory', this.editedCategoty.category);
+      this.$emit('editExistetedCategoty', this.editedCategoty);
     }
   }
 };

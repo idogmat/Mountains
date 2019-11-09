@@ -15,7 +15,6 @@
             skills-group(
               :category="category"
               @getRemoveCaregory="getRemoveCaregory"
-              @editExistetedCategoty="editExistetedCategoty"
             )
 
 </template>
@@ -42,6 +41,7 @@ export default {
     async addNewCategory() {
       try {
         await this.addCategory(this.title);
+        this.title="";
       } catch (error) {
         alert(error.message);
       }
@@ -52,10 +52,10 @@ export default {
         await this.fetchCategories();
       } catch (error) {}
     },
-    async editExistetedCategoty(category) {
+    async editExistetedCategoty(editCategory) {
       try {
-        console.log(category);
-        // await this.editCategory(category.id)
+        console.log(editCategory.id);
+        await this.editCategory(editCategory)
         // await this.fetchCategories();
       } catch (error) {
         

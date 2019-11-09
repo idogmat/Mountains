@@ -22,17 +22,6 @@ export default {
 
         commit("categories/EDIT_SKILL", data.skill, { root: true });
       } catch (error) {}
-    },
-    
-    async addReview(store, review) {
-      const formData = new FormData();
-
-      Object.keys(review).forEach(key => {
-        formData.append(key, review[key]);
-      })
-
-      await this.$axios.post('/reviews', formData); 
-      
     }
   }
 };

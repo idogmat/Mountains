@@ -30,6 +30,9 @@ export default {
         return category;
       });
     },
+    EDIT_CATEGORY(){
+
+    },
     REMOVE_SKILL(state, deletedSkill) {
       const removeSkill = category => {
         category.skills = category.skills.filter(
@@ -82,9 +85,9 @@ export default {
         commit("REMOVE_CATEGORY", categores );
       } catch (error) {}
     },
-    async editCategory({ commit }, editedCategory) {
+    async editCategory({ commit }, editCategory) {
       try {
-        const { data } = await this.$axios.post(`/categories/${categoryId}`, editedCategory);
+        const { data } = await this.$axios.post(`/categories/${editCategory.id}`, editCategory.category);
         commit("REMOVE_CATEGORY", categores );
       } catch (error) {}
     }

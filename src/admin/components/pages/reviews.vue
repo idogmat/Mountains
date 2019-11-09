@@ -5,9 +5,9 @@
     .reviews-container
       .container.card
         .card__title
-          .card__title-text Текст
+          .card__title-text {{review}}
         .card__content
-          .reviews__form   
+          form(@submit.prevent="sendReviewForm").reviews__form   
             .reviews__form-content
               .reviews__form-userpic
                 label.reviews__form-avatar-upload
@@ -17,8 +17,10 @@
                   ).reviews__form-file-input
                   .reviews__form-pic
                     .reviews__form-avatar-empty(
+                      type="file"
                       :class="{filled: renderedPhoto.length}"
                       :style="{'backgroundImage' : `url(${renderedPhoto})`}"
+                      v-model="review.photo"
                     )
                   .reviews__form-addphoto Добавить фото
               .reviews__form-col
@@ -26,16 +28,19 @@
                   .reviews__form-block
                     app-input(
                       title="Имя автора"
+                      v-model="review.author"
                     )
                   .reviews__form-block
                     app-input(
                       title="Титул автора"
+                      v-model="review.occ"
                     )
                 .reviews__form-row
                   .reviews__form-block
                     app-input(
                       title="Отзыв"
                       field-type="textarea"
+                      v-model="review.text"
                     )
       
           .edit-form__buttons
@@ -47,34 +52,38 @@
             .edit-form__buttons-item
               app-button(
                 text="Загрузить"
-                @click="send"
+                type="submit"
               )
 </template>
 
 <script>
 import { mapState, mapActions } from "vuex";
-
 export default {
+  computed: {
+    ...mapState("reviews", {
+      categories: state => state.reviews
+    })
+  },
   data: () => ({
     renderedPhoto: "",
     review: {
-      text: "",
+      id:"",
+      photo: "",
       author: "",
-      photo: ""
+      occ:"",
+      text: ""
     }
   }),
   methods: {
-    ...mapActions("skills", ["addReview"]),
-    send() {
-      this.addReview(this.review);
-    },
-    appendFileAndRenderPhoto(e) {
+    ...mapActions("reviews", ["getReviews","addReview"]),
+    async appendFileAndRenderPhoto(e) {
       const file = e.target.files[0];
       this.review.photo = file;
 
       const reader = new FileReader();
 
       try {
+        
         reader.readAsDataURL(file);
         reader.onload = () => {
           this.renderedPhoto = reader.result;
@@ -82,6 +91,9 @@ export default {
       } catch (error) {
         //=(
       }
+    },
+    async sendReviewForm(){
+      this.addReview(this.review);
     }
   },
   components: {
