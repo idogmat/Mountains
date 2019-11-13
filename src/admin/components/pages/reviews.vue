@@ -3,57 +3,12 @@
     .container
       h1.page-title Блок «Отзывы»
     .reviews-container
-      .container.card
-        .card__title
-          .card__title-text {{review}}
-        .card__content
-          form(@submit.prevent="sendReviewForm").reviews__form   
-            .reviews__form-content
-              .reviews__form-userpic
-                label.reviews__form-avatar-upload
-                  input(
-                    type="file"
-                    @change="appendFileAndRenderPhoto"
-                  ).reviews__form-file-input
-                  .reviews__form-pic
-                    .reviews__form-avatar-empty(
-                      type="file"
-                      :class="{filled: renderedPhoto.length}"
-                      :style="{'backgroundImage' : `url(${renderedPhoto})`}"
-                      v-model="review.photo"
-                    )
-                  .reviews__form-addphoto Добавить фото
-              .reviews__form-col
-                .reviews__form-row
-                  .reviews__form-block
-                    app-input(
-                      title="Имя автора"
-                      v-model="review.author"
-                    )
-                  .reviews__form-block
-                    app-input(
-                      title="Титул автора"
-                      v-model="review.occ"
-                    )
-                .reviews__form-row
-                  .reviews__form-block
-                    app-input(
-                      title="Отзыв"
-                      field-type="textarea"
-                      v-model="review.text"
-                    )
+      review-edit(
+      )
+      review-list(
+
+      )
       
-          .edit-form__buttons
-            .edit-form__buttons-item
-              app-button(
-                text="Отмена"
-                class="plain"
-              )
-            .edit-form__buttons-item
-              app-button(
-                text="Загрузить"
-                type="submit"
-              )
 </template>
 
 <script>
@@ -65,14 +20,7 @@ export default {
     })
   },
   data: () => ({
-    renderedPhoto: "",
-    review: {
-      id:"",
-      photo: "",
-      author: "",
-      occ:"",
-      text: ""
-    }
+    reviews: []
   }),
   methods: {
     ...mapActions("reviews", ["getReviews","addReview"]),
@@ -98,7 +46,9 @@ export default {
   },
   components: {
     appInput: () => import("components/input.vue"),
-    appButton: () => import("components/button.vue")
+    appButton: () => import("components/button.vue"),
+    reviewEdit: () => import("../review-edit"),
+    reviewList: () => import("../review-list")
   }
 };
 </script>
