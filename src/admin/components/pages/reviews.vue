@@ -1,202 +1,181 @@
 <template lang="pug">
-  .reviews-section
-    .container
-      h1.page-title Блок «Отзывы»
-    .reviews-container
-      review-edit(
-      )
-      review-list(
-
-      )
-      
+  div
+    section.reviews
+      .container.container-reviews
+        .reviews-title-wrap.title-wrap
+          .reviews-title.title Блок "Отзывы"
+        addReview(
+          v-if="showAddingForm"
+          @toogleAddingForm="toogleAddingForm"
+          :mode="currentMode"
+          )
+        section.reviews__change
+          ul.reviews__change-list
+            li.reviews__current.reviews__change-item(@click="showAddingForm = true;currentMode = 'add'")
+              .reviews__new
+                .reviews__new-icon
+                .reviews__new-text Добавить отзыв
+            li.reviews__change-item(v-for="review in reviews")
+              reviewsItem(
+                :review="review"
+                @updateCurrentReview='updateCurrentReview'
+              )
 </template>
 
 <script>
-import { mapState, mapActions } from "vuex";
+import {mapActions,mapState} from 'vuex';
 export default {
-  computed: {
-    ...mapState("reviews", {
-      categories: state => state.reviews
-    })
+  
+  components:{
+    addReview:()=>import('../reviews-add'),
+    reviewsItem:()=>import('../reviews-item')
   },
-  data: () => ({
-    reviews: []
-  }),
-  methods: {
-    ...mapActions("reviews", ["getReviews","addReview"]),
-    async appendFileAndRenderPhoto(e) {
-      const file = e.target.files[0];
-      this.review.photo = file;
-
-      const reader = new FileReader();
-
-      try {
-        
-        reader.readAsDataURL(file);
-        reader.onload = () => {
-          this.renderedPhoto = reader.result;
-        };
-      } catch (error) {
-        //=(
-      }
-    },
-    async sendReviewForm(){
-      this.addReview(this.review);
+  data(){
+    return{
+      showAddingForm:false,
+      currentMode:'add',
     }
   },
-  components: {
-    appInput: () => import("components/input.vue"),
-    appButton: () => import("components/button.vue"),
-    reviewEdit: () => import("../review-edit"),
-    reviewList: () => import("../review-list")
+  methods:{
+    ...mapActions('reviews',['fetchReview']),
+    toogleAddingForm(){
+      this.showAddingForm = !this.showAddingForm;
+    },
+    updateCurrentReview(){
+      this.showAddingForm = true;
+      this.currentMode = 'edit'
+    }
+    
+  },
+  async created(){
+    try{
+      await this.fetchReview();
+      console.log('fetchReview')
+    } catch(error){
+      console.log(error.message)
+    }
+    
+  },
+  computed:{
+     ...mapState('reviews',{
+      reviews:state=>{return state.reviews}
+    }),
   }
-};
+  
+}
 </script>
 
 <style lang="postcss" scoped>
-@import "../../../styles/mixins.pcss";
-.card {
-  background: #fff;
-  box-shadow: 4.1px 2.9px 20px 0 rgba(0, 0, 0, 0.07);
-  padding: 0 20px 30px;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  &_plain {
-    padding: 0;
-  }
-}
-.card__title {
-  padding: 30px 2%;
-  border-bottom: 1px solid rgba(#1f232d, 0.15);
-  font-size: 18px;
-  font-weight: 600;
-  margin-bottom: 30px;
-}
-.card__content {
-  padding: 0 2%;
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-}
-.container__reviews {
-  background: #fff;
-}
-.reviews__form {
-  margin-bottom: 30px;
-}
-.reviews__form-content {
-  display: flex;
-  @include tablets {
-    padding-right: 0;
-  }
-  @include phones {
-    flex-direction: column;
-  }
-}
-.reviews__form-addphoto {
-  text-align: center;
-}
-.reviews__form-row {
-  display: flex;
-  margin-bottom: 40px;
-  @include tablets {
-    flex-direction: column;
-  }
-}
-.reviews__form-col {
-  flex: 1;
-}
-.reviews__form-block {
-  flex: 1;
-  margin-right: 30px;
-  @include tablets {
-    margin-right: 0;
-    margin-bottom: 40px;
-    &:last-child {
-      margin-bottom: 0;
-    }
-  }
-  &:last-child {
-    margin-right: 0;
-  }
-}
-.reviews__form-addphoto {
-  color: #383bcf;
-  font-weight: 600;
-}
-.reviews__form-pic {
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  overflow: hidden;
-  margin-bottom: 27px;
-}
-.reviews__form-userpic {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-right: 30px;
-  @include phones {
-    margin-right: 0;
-    margin-bottom: 30px;
-  }
-}
-.reviews__form-avatar-empty {
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  background: #dee4ed;
-  position: relative;
-  &:before {
-    content: "";
-    height: 115px;
-    width: 85px;
-    background: svg-load("user.svg", fill=#fff) center center no-repeat;
-    display: block;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-  &.filled {
-    background: center center no-repeat / cover;
-    &:before {
-      display: none;
-    }
-  }
-}
-.reviews__form-avatar-upload {
-  position: relative;
-  &.error {
-    .reviews__avatar-error {
-      display: block;
-    }
-  }
-}
-.reviews__avatar-error {
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  display: none;
-}
-.reviews__form-file-input {
-  position: absolute;
-  top: 0;
-  left: -9999px;
-}
-.edit-form__buttons {
-  display: flex;
-  justify-content: flex-end;
-  @include tablets {
-    padding: 0 !important;
-  }
-}
-.edit-form__buttons-item {
-  margin-right: 20px;
-  &:last-child {
+
+@import url("../../../styles/mixins.pcss");
+
+
+ .reviews__change-list{
+   display: flex;
+  flex-wrap: wrap;
+ }
+ .reviews__change-item{
+   min-height:380px;
+   padding:20px;
+  width:32%;
+  margin-right: 2%;
+  margin-bottom: 5%;
+  background:white;
+  box-shadow: 4px 3px 20px rgba(0, 0, 0, 0.07);
+      position: relative;
+    padding-bottom: 50px;
+  &:nth-child(3n){
     margin-right: 0px;
   }
+  @include tablets{
+        width:48%;
+      margin-right: 4%;
+      &:nth-child(2n){
+        margin-right: 0px;
+      }
+      &:nth-child(3n){
+        margin-right: 4%;
+      }
+      }
+  @include phones{
+    width:100%;
+    margin-right: 0%;
+    &:nth-child(2n){
+        margin-right: 0px;
+      }
+      &:nth-child(3n){
+        margin-right: 0%;
+      }
+    }
 }
+.reviews__current{
+  background:linear-gradient(270deg,#1794e7 0,#242049);
+  @include phones{
+      padding-top: 1.25rem;
+  }
+  &:hover{
+     background:linear-gradient(to right, #1794e7 0%, #242049 100%);
+  }
+}
+.reviews__new{
+  height: 100%;
+      display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    @include phones{
+          flex-direction: row;
+    height: 100%;
+    }
+}
+.reviews__new-icon{
+  display: flex;
+  width: 150px;
+  height: 150px;
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  position: relative;
+  &:before{
+    content:'';
+    background: svg-load("remove.svg", fill="#fff") center center no-repeat / contain;
+    width: 2.125rem;
+    height: 2.125rem;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%) rotate(45deg);
+
+  }
+  @include phones{
+    width: 4.375rem;
+    height: 4.375rem;
+    margin-bottom: 0;
+  }
+}
+.reviews__new-text{
+font-size: 18px;
+font-weight: 700;
+line-height: 30px;
+color:white;
+width: 5.875rem;
+text-align: center;
+@include phones{
+  font-size: 0.875rem;
+    font-weight: 700;
+    line-height: 1.875rem;
+    color: #fff;
+    width: 9.875rem;
+    text-align: center;
+}
+}
+.reviews-title{
+  margin-bottom: 3.75rem;
+    font-size: 1.3125rem;
+    font-weight: 700;
+}
+
 </style>

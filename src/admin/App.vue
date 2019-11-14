@@ -31,7 +31,9 @@ button {
   border-color: rgb(216, 216, 216) rgb(209, 209, 209) rgb(186, 186, 186);
   border-style: solid;
   border-width: 1px;
+  outline:3px solid transparent;
   background-color: buttonface;
+
 }
 section {
     height: 65px;
@@ -65,9 +67,11 @@ section {
     min-height: 100vh;
   }
 }
-
-.content-container {
+body{
   background: url("~images/content/admin-bg.jpg") center center no-repeat / cover;
+}
+.content-container {
+  
   flex: 1;
   padding-top: 60px;
 

@@ -1,95 +1,67 @@
-const findRequiredCategory = (category, skill, cb) => {
-  if (category.id === skill.category) {
-    cb(category);
-  }
-
-  return category;
-};
-
+import skills from "./skills";
 export default {
-  namespaced: true,
-  state: {
-    categories: []
+  namespaced:true,
+  state:{
+    categories:[]
   },
-  mutations: {
-    SET_CATEGORIES(state, categories) {
-      state.categories = categories;
-    },
-    ADD_CATEGORY(state, category) {
-      state.categories.unshift(category);
-    },
-    REMOVE_CATEGORY(state, categoryId) {
-      state.categories = state.categories.filter(categories => category.id !== categoryId);
-    },
-    ADD_SKILL(state, newSkill) {
-      state.categories = state.categories.map(category => {
-        if (category.id === newSkill.category) {
-          category.skills.push(newSkill);
-        }
-
-        return category;
-      });
-    },
-    EDIT_CATEGORY(){
-
-    },
-    REMOVE_SKILL(state, deletedSkill) {
-      const removeSkill = category => {
-        category.skills = category.skills.filter(
-          skill => skill.id !== deletedSkill.id
-        );
-      };
-
-      const findRequiredCategory = category => {
-        if (category.id === deletedSkill.category) {
-          removeSkill(category);
-        }
-
-        return category;
-      };
-
-      state.categories = state.categories.map(findRequiredCategory);
-    },
-    EDIT_SKILL(state, editedSkill) {
-      const editSkill = category => {
-        category.skills = category.skills.map(skill =>
-          skill.id === editedSkill.id ? editedSkill : skill
-        );
-      };
-
-      state.categories = state.categories.map(category =>
-        findRequiredCategory(category, editedSkill, editSkill(category))
-      );
-    }
-  },
-  actions: {
-    async addCategory({ commit }, title) {
-      try {
-        const { data } = await this.$axios.post("/categories", { title });
-        commit("ADD_CATEGORY", data);
-      } catch (error) {
-        throw new Error(
-          error.response.data.error || error.response.data.message
-        );
+  actions:{
+    async addCategory(store,newCategory){
+      // console.log(newCategory);
+      try{
+        // console.log(await this.$axios.get('/user'));
+        const response = await this.$axios.post('/categories',{
+          title:newCategory
+        });
+        store.commit("ADD_CATEGORY",response.data);
+      } catch(error){
+        return error;
       }
     },
-    async fetchCategories({ commit }) {
-      try {
-        const { data } = await this.$axios.get("/categories/202");
-        commit("SET_CATEGORIES", data);
-      } catch (error) {}
+    async removeCategory(store,category){
+      try{
+        const response = await this.$axios.delete(`./categories/${category.id}`);
+        store.commit('DELETE_CATEGORY',category);
+      } catch(error){
+        alert(error.message)
+      }
     },
-    async removeCategory({commit}, categoryId){
-      try {
-        const { data } = await this.$axios.delete(`/categories/${categoryId}`);
-        commit("REMOVE_CATEGORY", categores );
-      } catch (error) {}
+    async changeCategory(store,currentCategory){
+      try{
+        const response = await this.$axios.post(`./categories/${currentCategory.id}`,{
+          title:currentCategory.category
+        });
+        store.commit("CHANGE_CATEGORY",currentCategory)
+      } catch(error){
+        alert(error.message)
+      }
     },
-    async editCategory({ commit }, editCategory) {
-      try {
-        const { data } = await this.$axios.post(`/categories/${editCategory.id}`, editCategory.category);
-        commit("REMOVE_CATEGORY", categores );
-      } catch (error) {}
+    async fetchCategory(store){
+      try{
+        const userId = store.rootGetters['user/userId'];
+        const {data : categories} = await this.$axios.get(`/categories/${userId}`);
+        console.log(categories);
+        store.commit("SET_CATEGORIES",categories)
+      } catch(error){
+
+      }
+    }
+  },
+  mutations:{
+    SET_CATEGORIES(state,categories){
+      state.categories = categories;
+    },
+    DELETE_CATEGORY(state,deleteCategory){
+      state.categories = state.categories.filter(category=>{
+        return category.id !== deleteCategory.id
+      })
+    },
+    CHANGE_CATEGORY(state,changedCategory){
+      state.categories = state.categories.map(category=>{
+        return category.id === changedCategory.id ? changedCategory : category;
+      })
+    },
+    ADD_CATEGORY(state,newCategory){
+      state.categories.unshift(newCategory);
     }
   }
-};
+}
