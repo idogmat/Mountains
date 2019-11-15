@@ -6,7 +6,6 @@
       .skills__group-percent-wrap
         input(type="number" name="skill_percent"  v-model="currentSkill.percent" :disabled="!editMode" :class="{validError:validation.hasError('currentSkill.percent')}").skills__group-percent
       div.error-input.error-input-percent(v-if="validation.hasError('currentSkill.percent')") {{validation.firstError('currentSkill.percent')}}
-      //- div.error-input {{validation.firstError('currentSkill.percent')}}
       .skills__group-actions(v-if="!editMode")
         .skills__group-correct(
           @click="editMode = true"
@@ -21,8 +20,6 @@
         .skills__group-cancel(
           @click="cancelEditing"
         )
-    //- pre {{skill}}
-    //- pre {{currentSkill}}
 </template>
 
 <script>
@@ -49,7 +46,6 @@ export default {
     return{
       editMode:false,
       currentSkill:{...this.skill},
-      // editedSkill:{...this.skill}
     }
   },
   methods: {
@@ -62,7 +58,6 @@ export default {
           type:'success',
           text:'Скилл успешно удален'
         })
-        // setTimeout(this.func, 3000);
       } catch(error){
         this.showTooltip({
             type:'error',
@@ -102,9 +97,6 @@ export default {
     },
   },
   watch:{
-    // skill:function(){
-    //    this.currentSkill={...this.skill}
-    // },
     "currentSkill.percent"(){
       if(this.currentSkill.percent > 100){
         this.currentSkill.percent = 100;
@@ -123,9 +115,6 @@ input[disabled]{
     border-bottom:2px solid transparent;
   }
 }
-.skills__group{
-  /* margin-bottom: 35px; */
-}
 .skills__group-row-wrap{
   display: flex;
   margin-bottom: 20px;
@@ -137,15 +126,19 @@ input[disabled]{
   margin-right: 5%;
   padding-bottom: 5px;
   font-weight: 700;
-   border-bottom:2px solid transparent;
+  background: transparent;
+   border-bottom:2px solid #000;
     &:hover{
-    border-bottom:2px solid $blue-hover;
+    border-bottom:2px solid #000;
   }
   &:active{
-      border-bottom:2px solid $blue-hover;
+      border-bottom:2px solid #000;
   }
    &:focus{
-      border-bottom:2px solid $blue-hover;
+      border-bottom:2px solid #000;
+  }
+  &:disabled{
+    border-bottom:2px solid transparent;
   }
 }
 .skills__group-percent-wrap{
@@ -153,6 +146,7 @@ input[disabled]{
   margin-right: 5%;
   font-size: 16px;
   position: relative;
+  
   &:before{
     content:'%';
     color:black;
@@ -167,16 +161,13 @@ input[disabled]{
 .skills__group-percent{
   text-align: right;
    border:none;
+   background: transparent;
     padding: 0.3125rem 1.375rem 0.3125rem 0.625rem;
     width:100%;
+    border-bottom:2px solid #000;
+    &:disabled{
      border-bottom: 2px solid transparent;
-
-    &:hover{
-      border-bottom: 2px solid $blue-hover;
-    }
-    &:focus{
-      border-bottom: 2px solid $blue-hover;
-    }
+  }
 }
 
 .skills__group-actions{

@@ -84,6 +84,6 @@ new Vue({
         const data = require("../data/works.json");
         this.works = this.makeArrWithRequiredImages(data);
 
-        this.currentWork = this.works[this.currentIndex];
+        this.currentWorks = this.works[this.currentIndex];
     }
 });

@@ -3,8 +3,6 @@
     .skills__new-group-wrap
       div.error-input(v-if="validation.hasError('currentCategory.category')") {{validation.firstError('currentCategory.category')}}
       input.skills__new-group(type='text' name="groupName" :disabled="!editMode" v-model="currentCategory.category"  :class="{validError:validation.hasError('currentCategory.category')}")
-      //- pre {{currentCategory.category}}
-      //- pre {{currentCategory}}
       .skills__new-group-actions(v-if="!editMode")
         .skills__correct(
          @click="editMode = true"
@@ -166,11 +164,6 @@ export default {
 
 <style lang="postcss" scoped>
 @import url("../../styles/mixins.pcss");
-input[disabled]{
-  &:hover{
-    border-bottom: 2px solid #414c63;
-  }
-}
 .skills__form{
   padding:20px;
   display: flex;
@@ -198,24 +191,18 @@ input[disabled]{
 }
 .skills__new-group{
   border: none;
-  border-bottom:2px solid transparent; 
+  border-bottom:2px solid #000;
   padding-bottom:10px;
-  border-bottom: 2px solid $text-color;
   width: 70%;
   background-color: transparent;
   color: #414c63;
   font-size: 1rem;
   font-weight: 700;
   line-height: 1.875rem;
-  border: none;
-  border-bottom: 2px solid #414c63;
   padding: 0 0.3125rem 0.625rem;
   margin-bottom: 1.875rem;
-  &:hover{
-    border-bottom:2px solid $blue-hover;
-  }
-  &:active{
-      border-bottom:2px solid $blue-hover;
+  &:disabled{
+  border-bottom:2px solid transparent; 
   }
 }
 .skills__new-group-actions{

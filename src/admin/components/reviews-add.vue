@@ -83,11 +83,9 @@ export default {
         reader.readAsDataURL(file);
         reader.onload = () =>{
           this.photoURl = reader.result;
-          console.log(this.photoURl);
         }
       } catch(error){
         alert(error.message);
-        console.log(error.message.errors.photo);
       }
     },
     async addNewReview(){
@@ -167,10 +165,8 @@ export default {
   },
   created(){
     if(this.mode == 'edit'){
-      console.log('edit mode')
       this.editingMode();
     } else if(this.mode == 'add'){
-        console.log('add mode')
       this.addingMode();
     }
   },
@@ -240,6 +236,7 @@ export default {
     display: none;
   }
 }
+
 .btn-cancel{
   margin-right: 40px;
   margin-top: 3.75rem;
@@ -256,7 +253,7 @@ export default {
   }
 }
 .btn-save{
-  margin-top: 3.75rem;
+  margin-top: 0;
   font-size: 1.125rem;
   line-height: 3rem;
   font-weight: 700;

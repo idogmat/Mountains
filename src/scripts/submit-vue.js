@@ -59,20 +59,26 @@ new Vue ({
             if (nameValid && emailValid && messageValid) {
                 var userData = {
                     name: this.name,
-                    email: this.email,
-                    message: this.message
+                    to: this.email,
+                    comment: this.message,
+                    phone:"8800800800"
                 }
-                fetch('src/data/success.txt', {
+                fetch('https://webdev-api.loftschool.com/sendmail', {
                     method: 'POST',
                     headers: {'Content-Type': 'application/json'},
                     body: JSON.stringify(userData)
                 }).then((response) => {
-                    console.log(userData);
+                    if(response = 200) {
+                    console.log(response);
                     this.resultMessage = "Сообщение отправлено!";
                     this.overlayHidden = false;
                     setTimeout(this.hideOverlay, 5000);
+                    }else {
+                    this.resultMessage = "Ошибка сервера";
+                    this.overlayHidden = false;
+                    setTimeout(this.hideOverlay, 5000);
+                    }
                 })
-
             }
         },
         hideOverlay() {
