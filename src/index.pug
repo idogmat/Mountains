@@ -1,0 +1,23 @@
+include ./mixins.pug
+<!DOCTYPE html>
+html(lang="ru")
+  include ./pug/_head.pug
+  body
+    .wrapper.wrapper-header(id='header')
+      include ./pug/_header-parallax.pug
+      .container
+        include ./pug/_1header-nav.pug
+        include ./pug/_2my-info.pug
+      include ./pug/_triangles.pug
+    .wrapper.wrapper-skills
+      .container
+        #skills-component
+        #slider-component
+    .wrapper.wrapper-responses
+      include ./pug/_triangles.pug
+      include ./pug/_footer-parallax.pug
+      .container
+        #responses-component
+        include ./pug/_6submit.pug
+    include ./pug/_7footer.pug
+    include ./templates/entry.pug
