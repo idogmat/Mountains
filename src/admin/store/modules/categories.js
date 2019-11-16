@@ -6,9 +6,8 @@ export default {
   },
   actions:{
     async addCategory(store,newCategory){
-      // console.log(newCategory);
+
       try{
-        // console.log(await this.$axios.get('/user'));
         const response = await this.$axios.post('/categories',{
           title:newCategory
         });
@@ -39,7 +38,6 @@ export default {
       try{
         const userId = store.rootGetters['user/userId'];
         const {data : categories} = await this.$axios.get(`/categories/${userId}`);
-        console.log(categories);
         store.commit("SET_CATEGORIES",categories)
       } catch(error){
 

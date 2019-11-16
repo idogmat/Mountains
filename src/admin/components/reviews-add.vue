@@ -239,7 +239,7 @@ export default {
 
 .btn-cancel{
   margin-right: 40px;
-  margin-top: 3.75rem;
+  margin-top: 0;
   font-size: 1.125rem;
   line-height: 3rem;
   font-weight: 700;

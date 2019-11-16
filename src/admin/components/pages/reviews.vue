@@ -50,7 +50,6 @@ export default {
   async created(){
     try{
       await this.fetchReview();
-      console.log('fetchReview')
     } catch(error){
       console.log(error.message)
     }

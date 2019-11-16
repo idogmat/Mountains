@@ -183,10 +183,7 @@ export default {
     margin-right: 30px;
     cursor: pointer;
  }
- /* .containerAddWorks{
-   background: #fff;
- } */
- 
+
 .addWorks__change-list{
   display: flex;
   flex-wrap: wrap;

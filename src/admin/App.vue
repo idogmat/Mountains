@@ -8,14 +8,37 @@
           tabs
         main.content-container
           router-view
+          tooltips
 </template>
 
 <script>
 import { mapState, mapActions, mapGetters } from "vuex";
+import store from '@/store';
 export default {
   components: {
     appHeader: () => import("components/header"),
-    tabs: () => import("components/tabs")
+    tabs: () => import("components/tabs"),
+    tooltips:() => import('components/tooltips')
+  },
+ computed:{
+    ...mapState("tooltips", {
+      status: state => state.toolData.active
+    }),
+
+  },
+  methods:{
+    ...mapActions('tooltips',['hideTooltip'])
+  },
+  watch:{
+    status:function(){
+      if(this.status){
+        let timeout;
+        clearTimeout(timeout);
+        timeout = setTimeout(() => {
+          this.hideTooltip();
+        }, 2000);
+      }
+    }
   }
 };
 </script>

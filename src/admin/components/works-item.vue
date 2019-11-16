@@ -2,7 +2,6 @@
   div
     .addWorks__preview
       img(:src="work.photo")
-      //- img(:src="work.photo")
       ul.addWorks__tags-list.addWorks__tags-list--preview
         li(v-for="item in tagArray").addWorks__tags-item {{item}}
     .addWorks__desc
@@ -15,18 +14,11 @@
       .addWorks__desc-controls
         .addWorks__desc-correct(@click="updateCurrentWork") Править
         .addWorks__desc-remove(@click="removeCurrentWork") Удалить
-      //- pre {{work.photo}}
-      //- pre {{tagArray}}
-      //- pre {{work}}
-
-      //- pre {{work}}
 </template>
 
 <script>
 import { mapActions } from 'vuex';
 import { getAbsoluteImgPath } from "@/helpers/pictures";
-// import { Validator } from 'simple-vue-validator';
-
 export default {
   
   props:{
@@ -44,14 +36,12 @@ export default {
     ...mapActions('tooltips',['showTooltip']),
     async removeCurrentWork(){
       try{
-        // console.log(this.work)
         await this.removeWork(this.work);
         this.showTooltip({
         type:'success',
         text:'Работа успешно удалена'
       });
       }catch(error){
-        // alert(error.message)
          this.showTooltip({
         type:'error',
         text:error.message
@@ -62,19 +52,11 @@ export default {
     updateCurrentWork(){
       this.$emit("updateCurrentWork")
       this.addCurrentWork(this.currentWork);
-      // console.log(this.work)
     }
   },
   created(){
-    // const reader = new FileReader();
-    // reader.readAsDataURL(this.work.photo);
-    //    reader.onload = () => {
-    //      this.photoUrl = reader.result;
-    //    }
     this.work.photo = getAbsoluteImgPath(this.work.photo);
     this.tagArray = this.work.techs.split(',');
-  },
-  computed:{
   },
   watch:{
     work(){

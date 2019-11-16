@@ -6,14 +6,14 @@
       .addWorks__form()
         .addWorks__file(
           :style="{'background-image':`url(${this.photoURl})`}"
-          :class="{validErrorTextarea:validation.hasError('workData.photo')}"
+          :class="{imaged:hasImage,validErrorTextarea:validation.hasError('workData.photo')}"
         )
           .addWorks__file-upload
             label(for="photoFile").addWorks__load-text
               p Перетащите или загрузите для загрузки изображения
               vue-dropzone(id="drop1" :options="dropOptions").dropzone
               input(type="file" id="photoFile" @change="loadPhoto" accept="image/*").addWorks__file-input
-              .addWorks__file-btn.btn Загрузить
+              button.btn-save.btn Загрузить
         .addWorks__info
           .addWorks__label-wrap
             label(for="input-title").addWorks__label Название
@@ -33,7 +33,7 @@
             div.error-input(v-if="validation.firstError('workData.techs')") {{validation.firstError('workData.techs')}}
           .addWorks__tags-list-wrap
             ul.addWorks__tags-list
-              li(v-for="(item,index) in tagsArray" v-if="tagsArray!=0 && item!=''" ).addWorks__tags-item {{item}}
+              li(v-for="(item,index) in tagsArray" v-if="tagsArray != 0 && item != ''" ).addWorks__tags-item {{item}}
                 .deleteTag(@click="removeTag(index)") x
           .addWorks__buttons
             button(type="reset" name="cancel" value="Отменить" @click="toogleAddingForm").addWorks__reset Отменить
@@ -107,8 +107,6 @@ export default {
       const file = e.target.files[0];
       this.workData.photo = file;
       this.hasImage = true;
-      // console.log(file);
-      // console.log(this.workData.photo);
       const reader = new FileReader();
       try{
         reader.readAsDataURL(file);
@@ -122,7 +120,6 @@ export default {
       }
     },
     async addNewWorks(){
-      // console.log('test')
        if((await this.$validate())===false){
          this.showTooltip({
           type:'error',
@@ -320,6 +317,16 @@ font-weight: 700;
        width: 45%;
     }
  }
+ .addWorks__file.imaged{
+   .addWorks__file-upload{
+     p{
+      display: none;
+     }
+     button{
+       display: none;
+     }
+   }
+ }
  .addWorks__info{
    width:48%;
    @include tablets{
@@ -422,7 +429,7 @@ font-weight: 700;
 }
 .btn-cancel{
   margin-right: 40px;
-  margin-top: 3.75rem;
+  margin-top: 0;
   font-size: 1.125rem;
   line-height: 3rem;
   font-weight: 700;

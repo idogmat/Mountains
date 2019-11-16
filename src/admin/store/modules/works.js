@@ -9,7 +9,7 @@ export default{
     async addWork(store,newWork){
       const data = wrapIntoFormData(newWork);
       try{
-        const response = await this.$axios.post('/works',data);
+        const response = await this.$axios.post('https://webdev-api.loftschool.com/works',data);
         store.commit("ADD_WORK",response.data);
       } catch(error){
         throw new Error(
@@ -20,7 +20,7 @@ export default{
     async fecthWorks(store){
       try{
         const userId = store.rootGetters['user/userId'];
-        const response = await this.$axios.get(`/works/${userId}`);
+        const response = await this.$axios.get(`https://webdev-api.loftschool.com/works/${userId}`);
         store.commit('SET_WORK',response.data);
       } catch(error){
         alert(error.message);
@@ -31,7 +31,7 @@ export default{
     },
     async removeWork(store,work){
       try{
-        const response = await this.$axios.delete(`./works/${work.id}`);
+        const response = await this.$axios.delete(`https://webdev-api.loftschool.com/works/${work.id}`);
         store.commit("DELETE_WORK",work);
 
       } catch(error){
@@ -48,7 +48,7 @@ export default{
       console.log(updatedWork)
       const data = wrapIntoFormData(updatedWork);
       try{
-        const response = await this.$axios.post(`/works/${updatedWork.id}`,data);
+        const response = await this.$axios.post(`https://webdev-api.loftschool.com/works/${updatedWork.id}`,data);
         store.commit('UPDATE_CURRENT_WORK',response.data.work);
       } catch(error){
         throw new Error(
