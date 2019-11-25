@@ -9,4 +9,4 @@ import "./scripts/works";
 import "./scripts/slider-responses";
 import "./scripts/mini-menu";
 import "./scripts/submit-vue";
-// import "./scripts/submit";
+// import "./scripts/get-created";

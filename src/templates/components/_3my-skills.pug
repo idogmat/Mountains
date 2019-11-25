@@ -4,7 +4,7 @@ script(type="text/x-template")#skills-list
     .my-skills__block
       h3.my-skills__block__h3 Чем я могу быть полезен вам
       p.my-skills__block__p Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
-      ul.user-skills
+      ul.user-skills 
         li.user-skills__item.skills-row(v-for="skill in skills" :key="skill.skillsGroup")
           skills-row(
             :skill="skill"

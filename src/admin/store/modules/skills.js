@@ -33,7 +33,7 @@ export default{
     },
     async removeSkill(store,skillId){
       try{
-        const response =  await this.$axios.delete(`/skills/${skillId}`)
+        const response =  await this.$axios.delete(`/skills/${skillId}`);
         store.commit("DELETE_SKILL",skillId);
       } catch(error){
         throw new Error(
@@ -57,6 +57,9 @@ export default{
         const {data : skills} = await this.$axios(`/skills/${userId}`);
         console.log(skills);
         store.commit("SET_SKILLS",skills)
+        let json = JSON.stringify(skills);
+        console.log(json);
+
       } catch(error){
         throw new Error(
           error.response.data.error || error.response.data.message
