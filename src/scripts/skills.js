@@ -1,4 +1,6 @@
-import Vue from "vue";
+import Vue from 'vue';
+const axios = require('axios');
+// axios.defaults.baseURL = 'https://webdev-api.loftschool.com';
 
 const skill = {
   template: "#skill",
@@ -40,11 +42,15 @@ new Vue({
   },
   data() {
     return {
-      skills: {}
+      skills: []
+
     };
   },
-  created() {
-    const data = require("../data/skills.json");
-    this.skills = data;
+
+  async created() {
+      const data = require('../data/skills.json');
+      this.skills = data;
+      console.log(skill);
+      console.log(typeof(skill));
   }
 });
