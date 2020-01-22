@@ -4,8 +4,8 @@ import Vue from "vue";
 const btns = {
     template: "#slider-btns"
 };
-const thambs = {
-    template: "#slider-thambs",
+const thumbs = {
+    template: "#slider-thumbs",
     props:["works", "currentWork"],
     computed: {
         reverseWorks() {
@@ -20,7 +20,7 @@ const tags = {
 };
 const display = {
     template: "#slider-display",
-    components: { thambs, btns },
+    components: { thumbs, btns },
 		props:["works", "currentWork","currentIndex"],
 		
 };
@@ -72,10 +72,12 @@ new Vue({
         handleSlide(direction) {
 					switch (direction) {
 						case "next":
-							this.currentIndex++;
+              this.currentIndex++;
+              console.log(this.currentIndex);
 							break;
 						case "prev":
-							this.currentIndex--;
+              this.currentIndex--;
+              console.log(this.currentIndex);
 							break;
 					}
         }

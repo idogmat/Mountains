@@ -16,7 +16,7 @@ script(type="text/x-template")#slider-display
   .my-works__left
     .slider(:data-slide="currentIndex + 1")
       img(:src="currentWork.photo" alt="fullpic").slider__fullpic
-      thambs(
+      thumbs(
         :works="works"
         :current-work="currentWork"
       )
@@ -32,7 +32,7 @@ script(type="text/x-template")#slider-btns
       button(@click.prevent="$emit('slide', 'prev')").slider-buttons__item
         +icon('arrow-down','slider-buttons__item--slide--next')
 
-script(type="text/x-template")#slider-thambs
+script(type="text/x-template")#slider-thumbs
   .slider__previews
     ul.previews
       li.previews__item(
