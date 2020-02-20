@@ -21,7 +21,7 @@ const tags = {
 const display = {
     template: "#slider-display",
     components: { thumbs, btns },
-		props:["works", "currentWork","currentIndex"],
+		props:["works", "currentWork","currentIndex","currentIndexBg"],
 		
 };
 const info = {
@@ -43,7 +43,8 @@ new Vue({
     },
     data:() => ({
         works:[],
-        currentIndex: 0
+        currentIndex: 0,
+        currentIndexBg:0
 
 		}),
 		computed: {
@@ -52,15 +53,16 @@ new Vue({
 			}
 		},
 		watch: {
-			currentIndex(value) {
+			currentIndexBg(value) {
 				this.makeInfiniteLoopForCurIndex(value);
 			}
 		},
     methods: {
 			makeInfiniteLoopForCurIndex(value) {
 				const worksAmount = this.works.length - 1;
-				if (value > worksAmount) this.currentIndex = 0;
-				if (value < 0) this.currentIndex = worksAmount;
+        if (value > worksAmount) this.currentIndexBg = 0;
+        if (value < 0) this.currentIndexBg = worksAmount;
+        
 			},
         makeArrWithRequiredImages(data) {
             return data.map(item => {
@@ -72,12 +74,17 @@ new Vue({
         handleSlide(direction) {
 					switch (direction) {
 						case "next":
-              this.currentIndex++;
-              console.log(this.currentIndex);
+              this.currentIndexBg++;
+              this.works.push(this.works[0]);
+              this.works.shift();
+              // console.log(this.currentIndex);
 							break;
 						case "prev":
-              this.currentIndex--;
-              console.log(this.currentIndex);
+              this.currentIndexBg--;
+              const lastItem = this.works[this.works.length-1];
+              this.works.unshift(lastItem);
+              this.works.pop();
+              // console.log(this.currentIndex);
 							break;
 					}
         }
