@@ -6,7 +6,7 @@ mixin icon(name, className)
 mixin image(path, className)
   img(src=require(`images/${path}`) class=className)
 
-- var nav = [{url: '#header', title: 'Главная'}, {url: '#my-info', title: 'Обо мне'}, {url: '#my-skills', title: 'Навыки'}, {url: '#my-works', title: 'Работы'}, {url: '#my-responses', title: 'Отзывы'}, {url: '#submit-me', title: 'Связаться'}]
+- var nav = [{url: '#header', title: 'Главная'}, {url: '#info-block', title: 'Обо мне'}, {url: '#my-skills', title: 'Навыки'}, {url: '#my-works', title: 'Работы'}, {url: '#my-responses', title: 'Отзывы'}, {url: '#submit-me', title: 'Связаться'}]
 mixin nav(className)
   ul(class="header-nav__ul")
     each item in nav
