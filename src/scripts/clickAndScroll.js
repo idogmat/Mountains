@@ -1,10 +1,10 @@
 var tabletMenu = document.querySelector('.mini-menu');
 
 
-var linkNav = document.querySelectorAll('.header-nav .header-nav__ul [href^="#"]'), //выбираем все ссылки к якорю на странице
+var linkNavMenu = document.querySelectorAll('.header-nav__ul [href^="#"]'), //выбираем все ссылки к якорю на странице
     V = .6;  // скорость, может иметь дробное значение через точку (чем меньше значение - тем больше скорость)
-for (var i = 0; i < linkNav.length; i++) {
-    linkNav[i].addEventListener('click', function(e) { //по клику на ссылку
+for (var i = 0; i < linkNavMenu.length; i++) {
+    linkNavMenu[i].addEventListener('click', function(e) { //по клику на ссылку
         e.preventDefault(); //отменяем стандартное поведение
         tabletMenu.style.display = 'none';
         document.body.style.overflow = '';
@@ -12,7 +12,7 @@ for (var i = 0; i < linkNav.length; i++) {
             hash = this.href.replace(/[^#]*(.*)/, '$1');  // к id элемента, к которому нужно перейти
         t = document.querySelector(hash).getBoundingClientRect().top,  // отступ от окна браузера до id
             start = null;
-        requestAnimationFrame(step);  // подробнее про функцию анимации [developer.mozilla.org]
+        requestAnimationFrame(step);
         function step(time) {
             if (start === null) start = time;
             var progress = time - start,

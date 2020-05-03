@@ -10,9 +10,9 @@ import "./scripts/parallax";
 import "./scripts/my-info";
 import "./scripts/skills";
 import "./scripts/works";
-import "./scripts/slider-responses";
 import "./scripts/mini-menu";
 import "./scripts/submit-vue";
 import "./scripts/clickAndScroll";
+import "./scripts/slider-responses";
 
 // import "./scripts/get-created";
