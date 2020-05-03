@@ -3,7 +3,12 @@ include ./mixins.pug
 html(lang="ru")
   include ./pug/_head.pug
   body
-    include ./templates/entry.pug
+    #page-preloader
+      .loader
+        .circle
+        .circle
+        .circle
+      include ./templates/entry.pug
     .wrapper.wrapper-header
       include ./pug/_header-parallax.pug
       .container#header
@@ -18,7 +23,7 @@ html(lang="ru")
     .wrapper.wrapper-responses
       include ./pug/_triangles.pug
       include ./pug/_footer-parallax.pug
-      .container
+      .container#submit-me
         #responses-component
         include ./pug/_6submit.pug
     include ./pug/_7footer.pug

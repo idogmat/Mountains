@@ -7,6 +7,7 @@ module.exports = {
     require("postcss-easy-import")({
       extensions: ".pcss"
     }),
+    require('postcss-nested'),
     require("autoprefixer")({
       cascade: false
     }),
