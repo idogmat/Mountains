@@ -134,22 +134,17 @@
     left: 22%;
     width: 55%;
     text-align: center;
-    /* position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 45%;
-    text-align: center;
-    transform: translate(-71%,-78%); */
-    /* @include desktopHd(){
-      top: 41%;
-      left: 30%;
-      width: 40%;
+    @include phones(){
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 65px;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      font-size: 12px;
     }
-    @include desktop(){
-      top: 41%;
-      left: 30%;
-      width: 40%;
-    } */
   }
   }
   .user-skills{
@@ -179,7 +174,7 @@
     &__item{
       width: 25%;
       @include phones(){
-        width: 35%;
+        width: 25%;
       }
 
     }

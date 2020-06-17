@@ -38,6 +38,9 @@
     @include tablets(){
       height: 100%;
     }
+    @include phones(){
+      height: 55%;
+    }
   }
 
   .form-label{
@@ -48,7 +51,7 @@
       cursor: pointer;
       z-index: 5;
       @include phones(){
-        margin-bottom: 30px;
+        margin-bottom: 0;
       }
       &:hover{
         .svg-form{
@@ -101,7 +104,7 @@
       @include phones(){
         flex-flow: column nowrap;
         justify-content: center;
-        margin: 50px auto;
+        margin: auto;
       }
     }
     &__label{
