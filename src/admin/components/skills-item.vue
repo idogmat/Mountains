@@ -176,31 +176,31 @@ input[disabled]{
   width:10%;
 }
 .skills__group-correct{
-  background: svg-load("pencil.svg", fill="#414c63") center center no-repeat / contain;
+  background: svg-load("pencil.svg", fill="#414c63") center center no-repeat;
   width:15px;
   height:15px;
   cursor: pointer;
   &:hover{
-     background: svg-load("pencil.svg", fill="#383bcf") center center no-repeat / contain;
+     background: svg-load("pencil.svg", fill="#383bcf") center center no-repeat;
   }
 }
 .skills__group-trash{
-  background: svg-load("trash.svg", fill="#414c63") center center no-repeat / contain;
+  background: svg-load("trash.svg", fill="#414c63") center center no-repeat;
   width:15px;
   height:15px;
   cursor: pointer;
    &:hover{
-     background: svg-load("trash.svg", fill="#bf2929") center center no-repeat / contain;
+     background: svg-load("trash.svg", fill="#bf2929") center center no-repeat;
   }
 }
 .skills__group-save{
-  background: svg-load("tick.svg", fill="#00d70a") center center no-repeat / contain;
+  background: svg-load("tick.svg", fill="#00d70a") center center no-repeat;
   width:15px;
   height:15px;
   cursor: pointer;
 }
 .skills__group-cancel{
-  background: svg-load("remove.svg", fill="#bf2929") center center no-repeat / contain;
+  background: svg-load("remove.svg", fill="#bf2929") center center no-repeat;
   width:15px;
   height:15px;
   cursor: pointer;

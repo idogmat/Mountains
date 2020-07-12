@@ -1,34 +1,34 @@
 [
     {
       "id": 1,
-      "title": "1 Сайт школы онлайн образования",
-      "skills": "1 Html, Css, JavaScript",
+      "title": "Sedona",
+      "techs": "HTML, CSS, JavaScript",
       "photo": "my-work1.jpg",
-      "link": "//google.com",
-      "desc": "1 Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!"
+      "link": "https://idogmat.github.io/sedona/",
+      "description": "\"СЕДОНА — НЕБОЛЬШОЙ ГОРОДОК В АРИЗОНЕ,\nЗАСЛУЖИВАЮЩИЙ БОЛЬШЕГО!\""
     },
     {
       "id": 2,
-      "title": "2 Сайт школы онлайн образования",
-      "skills": "2 Html, Css, JavaScript",
+      "title": "TechnoMart",
+      "techs": "HTML, CSS, JavaScript",
       "photo": "my-work2.jpg",
-      "link": "//yandex.ru",
-      "desc": "2 Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!"
+      "link": "https://idogmat.github.io/technomart/",
+      "description": "Интернет-магазин строительных материалов и инструментов для ремонта"
     },
     {
       "id": 3,
-      "title": "3 Сайт школы онлайн образования",
-      "skills": "3 Html, Css, JavaScript",
+      "title": "CHO-CCO",
+      "techs": "HTML, CSS, JavaScript",
       "photo": "my-work3.jpg",
-      "link": "//rambler.ru",
-      "desc": "3 Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!"
+      "link": "https://idogmat.github.io/CHoCCo/dist/",
+      "description": "НАТУРАЛЬНЫЕ ШОКОЛАДНЫЕ БАТОНЧИКИ"
     },
     {
       "id": 4,
       "title": "4 Сайт школы онлайн образования",
-      "skills": "4 Html, Css, JavaScript",
+      "techs": "4 Html, Css, JavaScript",
       "photo": "my-work4.jpg",
       "link": "//rambler.ru",
-      "desc": "4 Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!"
+      "description": "4 Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!"
     }
   ]

@@ -20,13 +20,13 @@ script(type="text/x-template")#slider-display
       thumbs(
         :works="works"
         :current-work="currentWork"
-        
+
       )
       btns(
         @slide="$emit('slide', $event)"
       )
 
-script(type="text/x-template")#slider-btns     
+script(type="text/x-template")#slider-btns
   .slider__buttons
     .slider-button
       button(@click.prevent="$emit('slide', 'next')").slider-buttons__item
@@ -45,15 +45,15 @@ script(type="text/x-template")#slider-thumbs
           a.previews__thumb-link
             img(:src="work.photo" alt="mini-pic").previews__pic
 
-script(type="text/x-template")#slider-info      
+script(type="text/x-template")#slider-info
   .my-works__right
     tags(
-      :tags ="tagsArray"
+      :tags ="currentWork.techs"
       )
     .my-works__text
       h1.my-works__h3 {{currentWork.title}}
     .my-works__desc-text
-      p.my-works__p {{currentWork.desc}}
+      p.my-works__p {{currentWork.description}}
     a.my-works__link(:href="currentWork.link")
       +icon('link', 'works__link')
       p.works__show Посмотреть сайт
@@ -61,4 +61,4 @@ script(type="text/x-template")#slider-info
 script(type="text/x-template")#slider-tags
   ul.my-works__tags
     li.tags(v-for="tag in tags")
-      .tags__item {{tag}}
+      .tags__item {{tag.name}}

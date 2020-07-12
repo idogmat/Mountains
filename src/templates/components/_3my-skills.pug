@@ -5,19 +5,18 @@ script(type="text/x-template")#skills-list
       h3.my-skills__block__h3 Чем я могу быть полезен вам
       p.my-skills__block__p Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
       ul.user-skills 
-        li.user-skills__item.skills-row(v-for="skill in skills" :key="skill.skillsGroup")
+        li.user-skills__item.skills-row(v-for="skill in skills")
           skills-row(
             :skill="skill"
           )
 
 script(type="text/x-template")#skills-row
   .skills-row
-    h3.skills-row__title {{skill.skillsGroup}}
+    h3.skills-row__title {{skill.category}}
     ul.skills-row__list 
-      li.skills-row__item(v-for="(skillPercent, skillName) in skill.skills")
+      li.skills-row__item(v-for="skillObj in skill.skills")
         skill(
-          :skillName="skillName"
-          :skillPercent="skillPercent"
+          :skillObj="skillObj"
         )
 
 
@@ -30,4 +29,4 @@ script(type="text/x-template")#skill
           stop(offset="100%" stop-color="#5400ec")
       circle(cx="100" cy="100" r="80" ).skill__circle.skill__circle--position--under
       circle(cx="100" cy="100" r="80" ref="color-circle" stroke="url(#my-gradient)" transform="rotate(-180 100 100)" style="animation-delay:25s").skill__circle.skill__circle--position--above
-    .skill__title {{skillName}} 
+    .skill__title {{skillObj.title}}

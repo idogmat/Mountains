@@ -221,7 +221,7 @@ export default {
   background-size:cover;
   &:before{
     content:'';
-    background: svg-load("user.svg", fill="#fff") center center no-repeat / contain;
+    background: svg-load("user.svg", fill="#fff") center center no-repeat;
     width: 5.125rem;
     height: 5.125rem;
     position: absolute;

@@ -1,7 +1,7 @@
 var tabletMenu = document.querySelector('.mini-menu');
 
 
-var linkNavMenu = document.querySelectorAll('.header-nav__ul [href^="#"]'), //выбираем все ссылки к якорю на странице
+var linkNavMenu = document.querySelectorAll('.header-nav__ul [href^="#"]'+',.scroll-pin [href^="#"]'), //выбираем все ссылки к якорю на странице
     V = .6;  // скорость, может иметь дробное значение через точку (чем меньше значение - тем больше скорость)
 for (var i = 0; i < linkNavMenu.length; i++) {
     linkNavMenu[i].addEventListener('click', function(e) { //по клику на ссылку
@@ -21,7 +21,7 @@ for (var i = 0; i < linkNavMenu.length; i++) {
             if (r != w + t) {
                 requestAnimationFrame(step)
             } else {
-                location.hash = hash  // URL с хэшем
+                // location.hash = hash  // URL с хэшем
             }
         }
     }, false);

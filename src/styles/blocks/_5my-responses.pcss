@@ -134,10 +134,15 @@
     flex-direction: row;
     justify-content: space-between;
     width: 970px;
-    padding-top: 85px;
+    padding-top: 5%;
+    height: 21.625rem;
     @include desktop(){
       justify-content: flex-start;
       width: 100%;
+    }
+
+    .flickity-viewport{
+      height: 100%;
     }
    @include tablets(){
     width: 100%;
@@ -153,17 +158,15 @@
     height: 500px;
   }
   .carousel-cell{
-    height: 500px;
+    height: 600px;
   }
 
   .slider-responses-block{
     display: flex;
     flex-direction: row;
+    height: 100%;
     z-index: 5;
     margin: 0 5%;
-    /* &:before{
-      content: url('~/images/icons/sprite.svg');
-    } */
     @include desktop(){
       margin: 0;
       width: 50%;

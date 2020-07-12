@@ -148,13 +148,13 @@ export default {
 
 }
 .skills__accept{
-  background: svg-load("tick.svg", fill="#00d70a") center center no-repeat / contain;
+  background: svg-load("tick.svg", fill="#00d70a") center center no-repeat;
   width:15px;
   height: 15px;
   cursor:pointer;
 }
 .skills__decline{
-  background: svg-load("remove.svg", fill="#bf2929") center center no-repeat / contain;
+  background: svg-load("remove.svg", fill="#bf2929") center center no-repeat;
   width:15px;
   height: 15px;
   cursor:pointer;
@@ -242,7 +242,7 @@ position: relative;
   position: absolute;
   top:50%;
   left:50%;
-  background: svg-load("remove.svg", fill="white") center center no-repeat / contain;
+  background: svg-load("remove.svg", fill="white") center center no-repeat;
   transform:rotate(45deg) translate(-70%,0%);
 }
 }

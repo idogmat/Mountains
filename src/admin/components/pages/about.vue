@@ -129,7 +129,7 @@ padding-left: 40px;
   position: absolute;
   top: 7.5px;
   left: 7.5px;;
-  background: svg-load("remove.svg", fill="white") center center no-repeat / contain;
+  background: svg-load("remove.svg", fill="white") center center no-repeat;
   transform: rotate(45deg);
 }
 }

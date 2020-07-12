@@ -78,7 +78,7 @@ export default {
   background-color: #b13333;
   }
 .serverMessage__close{
-   background: svg-load("remove.svg", fill="white") center center no-repeat / contain;
+   background: svg-load("remove.svg", fill="white") center center no-repeat;
    width:15px;
    height: 15px;
    cursor: pointer;

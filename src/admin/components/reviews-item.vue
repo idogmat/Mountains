@@ -127,7 +127,7 @@ margin-bottom: 20px;
    cursor: pointer;
   &:before{
     content:'';
-    background: svg-load("pencil.svg", fill="#383bcf") center center no-repeat / contain;
+    background: svg-load("pencil.svg", fill="#383bcf") center center no-repeat;
     width:20px;
     height: 20px;
     opacity:initial;
@@ -142,7 +142,7 @@ margin-bottom: 20px;
   cursor: pointer;
    &:before{
     content:'';
-    background: svg-load("remove.svg", fill="red") center center no-repeat / contain;
+    background: svg-load("remove.svg", fill="red") center center no-repeat;
     width:20px;
     height: 20px;
     opacity:initial;
