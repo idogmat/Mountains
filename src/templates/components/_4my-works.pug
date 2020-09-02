@@ -3,13 +3,16 @@ script(type="text/x-template")#slider-container
     h2.my-works__title Мои работы
     .my-works__block
       display(
+        v-if="isCreated"
         :works="works"
         :current-work="currentWork"
         :currentIndex="currentIndex"
         :currentIndexBg="currentIndexBg"
         @slide="handleSlide"
+        @slideOnClick="slideOnClick"
       )
       info(
+        v-if="isCreated"
         :current-work="currentWork"
       )
 
@@ -20,7 +23,7 @@ script(type="text/x-template")#slider-display
       thumbs(
         :works="works"
         :current-work="currentWork"
-
+        @slideOnClick="id=>$emit('slideOnClick',id)"
       )
       btns(
         @slide="$emit('slide', $event)"
@@ -41,6 +44,7 @@ script(type="text/x-template")#slider-thumbs
         v-for="work in reverseWorks"
         :key="work.id"
         :class="{active: work.id === currentWork.id }"
+        @click="$emit('slideOnClick',work.id)"
         )
           a.previews__thumb-link
             img(:src="work.photo" alt="mini-pic").previews__pic

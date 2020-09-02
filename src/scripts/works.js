@@ -8,7 +8,7 @@ const btns = {
 };
 const thumbs = {
     template: "#slider-thumbs",
-    props: ["works", "currentWork"],
+    props: ["works", "currentWork","currentIndex"],
     computed: {
         reverseWorks() {
             return [...this.works].reverse();
@@ -22,12 +22,12 @@ const tags = {
 const display = {
     template: "#slider-display",
     components: {thumbs, btns},
-    props: ["works", "currentWork", "currentIndex", "currentIndexBg"]
+    props: ["works", "currentWork", "currentIndex", "currentIndexBg","doCreate"]
 };
 const info = {
     template: "#slider-info",
     components: {tags},
-    props: ["currentWork"]
+    props: ["currentWork","doCreate"]
 };
 new Vue({
     template: "#slider-container",
@@ -37,10 +37,11 @@ new Vue({
         info
     },
     data: () => ({
+        isCreated:false,
         works: [],
         currentIndex: 0,
-        currentIndexBg: 0
-
+        currentIndexBg: 0,
+        currentWorks:Object
     }),
     computed: {
         currentWork() {
@@ -75,8 +76,6 @@ new Vue({
                     item.techs = objectTegs;
                     return item;
             })
-
-
         },
         handleSlide(direction) {
             switch (direction) {
@@ -94,14 +93,29 @@ new Vue({
                     // console.log(this.currentIndex);
                     break;
             }
+        },
+        slideOnClick(id) {
+            let newId =id - this.currentWork.id;
+            newId = -1 * newId;
+            if (newId <= 0) {
+                // console.log(newId);
+                // console.log(this.currentWork.id);
+                this.currentIndexBg++;
+                this.works.push(this.works[0]);
+                this.works.shift();
+            }else if(newId >= 0){
+                newId =+1;
+                // console.log(newId);
+                this.currentIndexBg++;
+                this.works.push(this.works[0]);
+                this.works.shift();
+            }
         }
     },
     async created() {
         const data = await getAPI.getWorks();
-        console.log(data);
-        // const data = require("../data/works.json");
+        // console.log(data);
         this.works = this.makeArrWithRequiredImages(data);
-
-        this.currentWorks = this.works[this.currentIndex];
+        this.isCreated = true;
     }
 });
