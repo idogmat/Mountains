@@ -304,39 +304,48 @@ position: relative;
 
 .skills__accept{
   background: svg-load("tick.svg", fill="#414c63") center center no-repeat;
+  background-size: 100%;
   width:15px;
   height: 15px;
   cursor:pointer;
   &:hover{
     background: svg-load("tick.svg", fill="#00d70a") center center no-repeat;
+     background-size: 100%;
   }
 }
 .skills__decline{
   background: svg-load("remove.svg", fill="#414c63") center center no-repeat;
+  background-size: 100%;
   width:15px;
   height: 15px;
   cursor:pointer;
    &:hover{
-    background: svg-load("remove.svg", fill="#bf2929") center center no-repeat;
+      background: svg-load("remove.svg", fill="#bf2929") center center no-repeat;
+      background-size: 100%;
   }
 }
 
 .skills__correct{
   background: svg-load("pencil.svg", fill="#414c63") center center no-repeat;
+  background-size: 100%;
   width:15px;
   height:15px;
   cursor: pointer;
   &:hover{
      background: svg-load("pencil.svg", fill="#383bcf") center center no-repeat;
+     background-size: 100%;
   }
 }
 .skills__trash{
   background: svg-load("trash.svg", fill="#414c63") center center no-repeat;
+  background-size: 100%;
   width:15px;
   height:15px;
   cursor: pointer;
    &:hover{
+
      background: svg-load("trash.svg", fill="#bf2929") center center no-repeat;
+      background-size: 100%;
   }
 }
 .validError{
