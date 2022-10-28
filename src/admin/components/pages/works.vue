@@ -254,7 +254,8 @@ export default {
   position: relative;
    &:before{
     content:'';
-    background: svg-load("remove.svg", fill="#fff") center center no-repeat / contain;
+    background: svg-load("remove.svg", fill="#fff") center center no-repeat;
+    background-size: 100%;
     width: 2.125rem;
     height: 2.125rem;
     position: absolute;

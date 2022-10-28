@@ -123,6 +123,7 @@ margin-bottom: 20px;
   &:before{
     content:'';
     background: svg-load("pencil.svg", fill="grey") center center no-repeat;
+     background-size: 100%;
     width:20px;
     height: 20px;
     opacity:initial;
@@ -133,6 +134,7 @@ margin-bottom: 20px;
   &:hover{
     &:before{
     background: ("pencil.svg", fill="#383bcf") center center no-repeat;
+       background-size: 100%;
 
     }
   }
@@ -144,6 +146,7 @@ margin-bottom: 20px;
   &:before{
     content:'';
     background: svg-load("remove.svg", fill="grey") center center no-repeat;
+     background-size: 100%;
     width:20px;
     height: 20px;
     opacity:initial;
@@ -154,6 +157,7 @@ margin-bottom: 20px;
   &:hover{
     &:before{
       background: svg-load("remove.svg", fill="red") center center no-repeat;
+       background-size: 100%;
     }
   }
 
