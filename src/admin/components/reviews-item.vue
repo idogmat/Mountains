@@ -128,6 +128,7 @@ margin-bottom: 20px;
   &:before{
     content:'';
     background: svg-load("pencil.svg", fill="#383bcf") center center no-repeat;
+    background-size: 100%;
     width:20px;
     height: 20px;
     opacity:initial;

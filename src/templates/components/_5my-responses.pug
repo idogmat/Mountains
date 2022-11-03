@@ -25,11 +25,11 @@ script(type="text/x-template")#responses-block
   .slider-respons
     .slider-respons__icon-text
       +icon('quote', 'quote')
-      p.slider-respons-p {{charecter.responses}}
+      p.slider-respons-p {{charecter.text}}
     .mentor
       .mentor-photo
         img(:src="charecter.photo" alt="mini-pic")
         //- +image('content/mentor1.png', 'mentor1')
       .mentor-name
-        h3.mentor-name-h3 {{charecter.name}}
-        p.mentor-name-p {{charecter.profession}}
+        h3.mentor-name-h3 {{charecter.author}}
+        p.mentor-name-p {{charecter.occ}}

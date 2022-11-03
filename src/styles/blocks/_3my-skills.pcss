@@ -130,10 +130,15 @@
   }
   &__title{
     position: absolute;
-    top: 41%;
-    left: 22%;
-    width: 55%;
+    top: 50%;
+    left: 345%;
+    width: 100%;
+    transform: translate(-350%,-50%);
     text-align: center;
+    @include tablets(){
+      transform: translate(-50%, -50%);
+      left: 50%;
+    }
     @include phones(){
       position: absolute;
       top: 50%;

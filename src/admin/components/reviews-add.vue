@@ -222,6 +222,7 @@ export default {
   &:before{
     content:'';
     background: svg-load("user.svg", fill="#fff") center center no-repeat;
+    background-size: 100%;
     width: 5.125rem;
     height: 5.125rem;
     position: absolute;

@@ -37,6 +37,12 @@ export const getAPI = {
             .then(response => {
                 return response.data;
             })
+    },
+    async getResponses() {
+        return instance.get(`/reviews/19`)
+            .then(response => {
+                return response.data;
+            })
     }
 }
     //не важно

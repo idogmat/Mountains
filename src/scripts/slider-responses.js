@@ -1,5 +1,6 @@
 import Vue from "vue";
 import Flickity from "vue-flickity";
+import {getAPI} from "./api-get";
 const sliderBlock ={
     template: "#responses-block",
     props: ["charecter"]
@@ -54,15 +55,16 @@ new Vue({
     methods: {
         RequiredImages(data) {
             return data.map(item => {
-                const requiredPic = require(`../images/content/${item.photo}`);
+                const requiredPic = `https://webdev-api.loftschool.com/${item.photo}`;
                 item.photo = requiredPic;
                 return item
             })
         }
     },
-    created() {
-        this.charecters = require("../data/responses.json");
+    async created() {
+        this.charecters = await getAPI.getResponses();
         const data = this.charecters;
         this.charecters = this.RequiredImages(data);
+
     }
 });
