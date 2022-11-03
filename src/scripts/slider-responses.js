@@ -22,7 +22,8 @@ const sliders = {
                 groupCells: true,
                 resize: true,
                 freeScroll: false,
-                contain: true
+                contain: true,
+
             }
         }
     },
@@ -50,7 +51,8 @@ new Vue({
         sliders
     },
     data: () =>({
-        charecters: []
+        charecters: [],
+        isCreated:false
     }),
     methods: {
         RequiredImages(data) {
@@ -61,10 +63,12 @@ new Vue({
             })
         }
     },
-    async created() {
+    async beforeCreate() {
         this.charecters = await getAPI.getResponses();
         const data = this.charecters;
         this.charecters = this.RequiredImages(data);
+        this.isCreated = true;
 
-    }
+    },
+
 });

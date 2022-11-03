@@ -1,5 +1,6 @@
 script(type="text/x-template")#responses-display
   section.my-responses(
+      v-if="isCreated"
       id='my-responses'
       @click="$children[0].checkArrows();"
       @touchend="$children[0].checkArrows();"
@@ -13,6 +14,7 @@ script(type="text/x-template")#responses-display
           +icon('arrow-down','arrow-right')
     sliders(
       :charecters="charecters"
+
     )
 script(type="text/x-template")#responses-slider
   .move-slider
