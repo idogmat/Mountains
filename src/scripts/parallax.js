@@ -2,9 +2,9 @@ var parallax = (function () {
     var BuddaBg = document.querySelector('.budda__block__bg'),
     BuddaCloud = document.querySelector('.budda__block__cloud'),
     Budda = document.querySelector('.budda-par'),
-    bg = document.querySelector('.hero__block__ballum'),
+        baloon = document.querySelector('.hero__block__ballum .baloon-par'),
     cloud = document.querySelector('.hero__block__bg'),
-    baloon = document.querySelector('.sky-par');
+    bg = document.querySelector('.sky-par');
     
     
     return {
@@ -23,13 +23,13 @@ var parallax = (function () {
 
             if (bottomOffset > 0) {
             this.move(BuddaBg, wScroll, 80);
-            this.move(BuddaCloud, wScroll, 60);
-            this.move(Budda, wScroll, 90);
+            this.move(BuddaCloud, wScroll, 90);
+            this.move(Budda, wScroll, 80);
             }
             if (topOffset < 0) {
             this.move(bg, wScroll, 80);
             this.move(cloud, wScroll, 60);
-            this.move(baloon, wScroll, 50);
+            this.move(baloon, wScroll, 10);
             }
         }
         

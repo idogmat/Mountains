@@ -16,7 +16,6 @@ const skill = {
         getComputedStyle(circle).getPropertyValue("stroke-dasharray")
       );
       const ColorPercent = (dashArray / 100) * (100 - this.skillObj.percent);
-
       circle.style.strokeDashoffset = ColorPercent;
     }
   },
@@ -49,11 +48,8 @@ new Vue({
   },
 
   async created() {
-    // const data = require('../data/skills.json');
-    // this.skills = data;
       const data = await getAPI.getSkills();
       this.skills = data;
-    console.log('res')
-      console.log(data)
+
   }
 });

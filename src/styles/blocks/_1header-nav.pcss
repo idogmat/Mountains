@@ -39,7 +39,7 @@
       }
       @include tablets(){
         display: none;
-        
+
       }
     }
     &__li{
@@ -101,7 +101,7 @@
       line-height: 1;
     }
   }
-  
+
   .header-content{
     display: flex;
     flex-direction: column;
@@ -136,9 +136,11 @@
   //mini menu
   .tablet{
     display: none;
+
     @include tablets(){
       display: flex;
       padding-top: 9px;
+
     }
     &__menu{
       display: flex;
@@ -148,7 +150,8 @@
       height: 1.5rem;
       margin-right: .625rem;
       cursor: pointer;
-      
+
+
 
       &__row{
         display: flex;
@@ -171,7 +174,10 @@
     }
 .mini-menu{
   display: none;
-  /* display: flex; */
+  @include tablets(){
+    ///* display: flex;
+  }
+
   padding: 65px;
   padding-bottom: 200px;
   flex-flow: column nowrap;
@@ -182,6 +188,7 @@
   width: 400px;
   right: 0;
   top: 0;
+
   @include phones(){
     width: 100%;
     padding-left: 60px;
@@ -277,10 +284,13 @@
           @include desktopHd{
             bottom: -22%;
           }
+          @media screen and (max-width: 1450px){
+            bottom: 0%;
+          }
         }
         .mountain-par{
           @media screen and (max-width: 1450px){
-           bottom: -60%;
+           bottom: -80%;
           }
           @include desktop(){
             bottom: -50%;
@@ -288,18 +298,18 @@
         }
         .mountain1-par{
           @media screen and (max-width: 1450px){
-            bottom: -80%;
+            bottom: -115%;
            }
           @include desktop(){
             bottom: -100%;
           }
         }
-     
+
      }
     &__block__ballum{
       position: absolute;
       min-height: 650px;
-      top: 10;
+      top: 10px;
       right: 0;
       left: 0;
       will-change: transform;
@@ -338,7 +348,7 @@
         }
         @include desktop(){
           margin-bottom: 0px;
-          bottom: -120%;
+          bottom: -110%;
           height: 100%;
         }
       }
@@ -355,12 +365,12 @@
         }
         @media screen and (max-width: 1450px){
           width: 85%;
-          top: 100%;
+          top: 130%;
           left: -20%;
         }
         @include desktop(){
           width: 95%;
-          top: 100%;
+          top: 120%;
         }
       }
 

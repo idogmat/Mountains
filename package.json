@@ -1,7 +1,7 @@
 {
   "name": "Mountains",
   "version": "1.0.0",
-  "description": "Сайт https://idogmat.github.io/Mountains/ > Перед установкой зависимостей и запуском проекта убедитесь, что у вас установлена [последняя версия Node.js & NPM](https://nodejs.org/en/download/current/), а так же \r [последняя версия Yarn](https://yarnpkg.com/ru/docs/install)",
+  "description": "https://idogmat.github.io/Mountains/",
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server --mode=development --hot",
@@ -65,7 +65,7 @@
     "flickity": "^2.2.1",
     "normalize.css": "^8.0.1",
     "promptly": "^3.0.3",
-    "pug": "^3.0.1",
+    "pug": "^2.0.0",
     "signale": "^1.4.0",
     "simple-vue-validator": "^0.16.0",
     "vue": "^2.6.11",
@@ -82,5 +82,5 @@
   "bugs": {
     "url": "https://github.com/idogmat/Mountains/issues"
   },
-  "homepage": "https://github.com/idogmat/Mountains#readme"
+  "homepage": "https://idogmat.github.io/Mountains/"
 }
